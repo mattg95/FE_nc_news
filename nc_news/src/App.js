@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from "./components/Header"
 import Nav from "./components/Nav"
 import './App.css';
-import StudentList from './components/StudentList';
+import ArticleList from './components/ArticleList';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       <div>
       <Header></Header>
       <Nav></Nav>
-      <StudentList/>
+      <ArticleList/>
       </div>
     );
   }
