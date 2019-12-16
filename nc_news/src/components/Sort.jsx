@@ -19,8 +19,8 @@ export default class Sort extends Component {
                 <form className="form">
                   <label> Sort By 
                 <select className="form" onChange={this.changeSort}>
-                    <option >Votes</option>
-                    <option >Date created</option>
+                    <option >votes</option>
+                    <option >created_at</option>
                     <option>comment_count</option>
                 </select>
                     </label>
