@@ -10,14 +10,18 @@ class ArticleList extends Component {
     getArticles = () => {
         api.getAllArticles().then(articles => this.setState({ articles }));
       };
-      componentDidMount() {
+      componentDidMount() { 
         this.getArticles();
       }
-      componentDidUpdate() {
-        console.log(this.props)
-      }
+      componentDidUpdate(prevProps, prevState) {
+        if( (this.props.order !== prevProps.order) || (this.props.sortBy !== prevProps.sortBy) ){
+          api.sortArticles(this.props.sortBy, this.props.order).then(articles => this.setState({articles}))
+        }      
+        }    
+      
       createArticleList = () => {
         return this.state.articles.map((article) => {
+          console.log(article.comment_count)
           return (<ArticleCard article={article} key={article.article_id}></ArticleCard>)
         })
       }
