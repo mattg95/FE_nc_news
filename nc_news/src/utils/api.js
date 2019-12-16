@@ -26,4 +26,11 @@ exports.getArticlesByTopic = (topic) => {
 )
 }
 
+exports.getArticleById = (id) => {
+    return axios.get(baseURL + `/articles/${id}`).then(({ data }) =>
+    (data.article)
+)
+}
+
+
 

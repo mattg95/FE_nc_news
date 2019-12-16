@@ -7,13 +7,14 @@ class ArticleList extends Component {
         articles: [],
         loading: true,
     }
-    getArticles = () => {
-        api.getAllArticles().then(articles => this.setState({ articles }));
-      };
+
       componentDidMount() { 
-        this.getArticles();
+        console.log(api.getArticleById(28))
+        return api.getAllArticles().then(articles => 
+          this.setState({ articles })
+         );
       }
-      componentDidUpdate(prevProps,prevState) {
+      componentDidUpdate(prevProps) {
         if( (this.props.order !== prevProps.order) || (this.props.sortBy !== prevProps.sortBy) ){
           api.sortArticles(this.props.sortBy, this.props.order).then(articles => this.setState({articles}))
         }      
