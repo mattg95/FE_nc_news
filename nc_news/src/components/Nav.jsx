@@ -1,30 +1,22 @@
 import React, { Component } from 'react'
-import {getTopics} from "../utils/api"
+import {Link} from "@reach/router";
 
  class Nav extends Component {
-     state = {
-         topics: []
-     }
-    getTopics = () => {
-        getTopics().then(topics => this.setState({ topics }));
-      };
-      componentDidMount() {
-        this.getTopics();
-      }
-      mapTopics = () => {
-          return this.state.topics.map((topic, i) => {
-              console.log(topic)
-            return <button key={i}>{topic.slug}</button>
-          })
-      }
     render() {
-
         return (
-            <div>
-                {this.mapTopics()}
-            </div>
-        )
-    }
+          <form className="Nav">
+            <Link to="/coding">
+              <button className="topicsButton">Coding</button>
+            </Link>
+            <Link to="/football">
+              <button className="topicsButton">Football</button>
+            </Link>
+            <Link to="/cooking">
+              <button className="topicsButton">Cooking</button>
+            </Link>
+          </form>
+        );
+      }
 }
 
 export default Nav

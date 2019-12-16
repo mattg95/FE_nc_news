@@ -1,5 +1,21 @@
 .Header {
   display: flex;
   justify-content: center;
-  font-size: 40px
+  font-size: 40px;
+  border: 2px solid blue
+}
+
+.Nav {
+display: flex;
+justify-content: center;
+border: 2px solid red;
+
+}
+
+.topicsButton {
+  font-size: 20px
+}
+
+.studentList {
+  border: 2px solid yellow
 }
