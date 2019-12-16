@@ -13,8 +13,15 @@ exports.getAllArticles = () => {
         (data.articles)
     )
 }
+
 exports.sortArticles = (sortBy, order) => {
     return axios.get(baseURL + `/articles?sort_by=${sortBy}&order=${order}`).then(({ data }) =>
+    (data.articles)
+)
+}
+
+exports.getArticlesByTopic = (topic) => {
+    return axios.get(baseURL + `/articles?topic=${topic}`).then(({ data }) =>
     (data.articles)
 )
 }

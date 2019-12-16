@@ -4,7 +4,7 @@ import ArticleList from "./ArticleList"
 export default class Sort extends Component {
     state = {
         sortBy: "",
-        order: ""
+        order: "",
     }
 
     changeSort =() => {this.setState({sortBy: event.target.value})
@@ -12,16 +12,16 @@ export default class Sort extends Component {
 
     changeAsc = () => {this.setState({order: event.target.value})
     }
-    handleSubmit(){console.log(event.target.value)}
     render() {
+   
         return (
             <div className="sort">
                 <form className="form">
                   <label> Sort By 
                 <select className="form" onChange={this.changeSort}>
-                    <option >votes</option>
-                    <option >created_at</option>
-                    <option>comment_count</option>
+                    <option value="votes">Votes</option>
+                    <option value="created_at">Date</option>
+                    <option value="comment_count">Comment count</option>
                 </select>
                     </label>
                     <label> Order  
@@ -31,9 +31,8 @@ export default class Sort extends Component {
                     <option >desc</option>
                 </select>
                 </label>
-                <input type="submit" value="Submit" className="form" onChange={this.handleSubmit}></input>
                 </form>
-                <ArticleList sortBy={this.state.sortBy} order={this.state.order || "asc"}/>
+                <ArticleList topic={this.props.topic} sortBy={this.state.sortBy} order={this.state.order || "asc"}/>
               </div>
         )
     }
