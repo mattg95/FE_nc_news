@@ -13,14 +13,17 @@ class ArticleList extends Component {
       componentDidMount() {
         this.getArticles();
       }
+      componentDidUpdate() {
+        console.log(this.props)
+      }
       createArticleList = () => {
         return this.state.articles.map((article) => {
-          return (<ArticleCard article={article}></ArticleCard>)
+          return (<ArticleCard article={article} key={article.article_id}></ArticleCard>)
         })
       }
       render() {
     return (
-      <div className="ArticleList">
+      <div className="ArticleList" >
         {this.state.articles.length && this.createArticleList()}
       </div>
     );

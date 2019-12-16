@@ -10,7 +10,6 @@ exports.getTopics = () => {
 
 exports.getAllArticles = () => {
     return axios.get(baseURL + "/articles").then(({ data }) =>
-
         (data.articles)
     )
 }
