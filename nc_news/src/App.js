@@ -7,15 +7,18 @@ import SingleArticle from "./components/SingleArticle"
 import Sort from "./components/Sort"
 
 class App extends Component {
+  state = {
+    username:"jessjelly"
+  }
   render() {
     return (
       <div>
       <Header/>
        <Nav/>
       <Router>
-        <SingleArticle path="/articles/:articleId"/>
+        <SingleArticle username={this.state.username} path="/articles/:articleId"/>
         <Sort path="/articles/topic/:topic"/>
-        <Sort path="/"/>
+        <Sort  path="/"/>
       </Router>
       </div>
     );

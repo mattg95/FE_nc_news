@@ -21,29 +21,21 @@ exports.getArticlesByTopic = topic => {
     .then(({ data }) => data.articles);
 };
 
-exports.getArticleById = id => {
+exports.getArticleById = articleId => {
   return axios
-    .get(baseURL + `/articles/${id}`)
+    .get(baseURL + `/articles/${articleId}`)
     .then(({ data }) => data.article);
 };
-exports.getCommentsForArticle = id => {
+exports.getCommentsForArticle = articleId => {
   return axios
-    .get(baseURL + `/articles/${id}/comments`)
+    .get(baseURL + `/articles/${articleId}/comments`)
     .then(({ data }) => data.comments);
 };
 
-exports.postComment = (id, user, comment) => {
-  console.log("posting comment")
+exports.postComment = (articleId, username, comment) => {
   return axios
-    .post(baseURL + `/articles/33/comments`, {
-      username: "jessjelly",
-      body: "please accept this humble comment"
+    .post(baseURL + `/articles/${articleId}/comments`, {
+      username: username,
+      body: comment
     })
-    .then(res => {
-      console.log("comment submitted");
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err);
-    });
 };
