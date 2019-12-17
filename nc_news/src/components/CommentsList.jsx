@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as api from "../utils/api"
 import CommentCard from "./CommentCard"
+import CommentForm from "./CommentForm"
 
 export default class CommentsList extends Component {
     state = {
@@ -22,6 +23,7 @@ export default class CommentsList extends Component {
             <div className="commentsList" >
                 <h4>Comments</h4>
             {this.state.comments.length && this.createCommentsList()}
+            <CommentForm/>
             </div>
         )
     }

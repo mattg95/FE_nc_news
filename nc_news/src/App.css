@@ -36,6 +36,16 @@ border: 2px solid red;
 .commentsList {
   border: 2px solid yellow
 }
+
 .commentCard {
   border: 2px solid lightblue
+}
+
+.commentForm {
+  border: 2px solid orange
+}
+
+.commentInput{
+  width: 90vw;
+  height:10vw
 }

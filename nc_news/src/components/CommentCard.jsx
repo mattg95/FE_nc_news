@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import CommentsList from "./CommentsList";
 
 export default class ArticleCard extends Component {
     render() {
