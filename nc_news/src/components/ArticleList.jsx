@@ -9,7 +9,6 @@ class ArticleList extends Component {
     }
 
       componentDidMount() { 
-        console.log(api.getArticleById(28))
         return api.getAllArticles().then(articles => 
           this.setState({ articles })
          );
@@ -19,9 +18,18 @@ class ArticleList extends Component {
           api.sortArticles(this.props.sortBy, this.props.order).then(articles => this.setState({articles}))
         }      
         if (this.props.topic !== prevProps.topic){
-          api.getArticlesByTopic(this.props.topic).then(articles => this.setState({articles}))
+          if (!this.props.topic){
+            console.log("getting all")
+            api.getAllArticles().then(articles => 
+              this.setState({ articles }))
+          }
+          else {
+
+            api.getArticlesByTopic(this.props.topic).then(articles => this.setState({articles}))
+          }
         }
-        }    
+         
+      }
       
       createArticleList = () => {
         return this.state.articles.map((article) => {
