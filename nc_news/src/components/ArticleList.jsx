@@ -19,7 +19,6 @@ class ArticleList extends Component {
         }      
         if (this.props.topic !== prevProps.topic){
           if (!this.props.topic){
-            console.log("getting all")
             api.getAllArticles().then(articles => 
               this.setState({ articles }))
           }
