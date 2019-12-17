@@ -6,9 +6,7 @@
 }
 
 .Nav {
-
 border: 2px solid red;
-
 }
 
 .topicsButton {
@@ -24,9 +22,7 @@ border: 2px solid red;
 }
 
 .sort {
-
   border:2px solid orange
-  
 }
 
 .form {
@@ -37,4 +33,9 @@ border: 2px solid red;
   border: 2px solid purple
 }
 
-
+.commentsList {
+  border: 2px solid yellow
+}
+.commentCard {
+  border: 2px solid lightblue
+}

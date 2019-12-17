@@ -24,7 +24,6 @@ class ArticleList extends Component {
               this.setState({ articles }))
           }
           else {
-
             api.getArticlesByTopic(this.props.topic).then(articles => this.setState({articles}))
           }
         }
