@@ -45,6 +45,8 @@ exports.deleteComment = (commentId) => {
 }
 
 exports.voteHandler = (thing, id, vote) => {
+  console.log("voting")
+  console.log(thing, id, vote)
   return axios.patch(baseURL+`/${thing}/${id}`, {
     inc_votes: vote
   })

@@ -3,25 +3,19 @@ import * as api from "../utils/api"
 
 export default class VoteHandler extends Component {
     state = {
-        upvoted: false,
-        downvoted: false
+        vote: 0
     }
-    upVote = () => {
-        return api.voteHandler(this.props.thing, this.props.id, 1).then(this.setState( {
-            upvoted:true
-        }))
-    }
-    downVote = () => {
-        return api.voteHandler(this.props.thing, this.props.id, -1).then(this.setState( {
-            downvoted:true
-        }))
+
+    handleClick = (event) => {
+        this.setState({vote: event.target.value})
+        return api.voteHandler(this.props.thing, this.props.id, 1).catch((err) => {console.log(err)})
     }
     render() {
-        console.log(this.state)
         return (
             <div className="voteForm">
-                <button onClick={this.upVote} disabled={this.state.upvoted} className="voteButton">UpVote</button>
-                <button  onClick={this.downVote} disabled={this.state.downvoted} className="voteButton">DownVote</button>
+                <p> Votes: {this.props.votes + +this.state.vote }</p>
+                <button onClick={this.handleClick} value={1} disabled={this.state.vote > 0} className="voteButton">UpVote</button>
+                <button onClick={this.handleClick} value={-1} disabled={this.state.vote < 0} className="voteButton">DownVote</button>
             </div>
         )
     }
