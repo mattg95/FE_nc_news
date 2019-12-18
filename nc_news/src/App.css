@@ -52,5 +52,17 @@ border: 2px solid red;
 
 .deleteButton {
   float:right;
+  font-size: 20px;
+  border: 2px solid orange
+}
+
+.voteForm {
+  display: flex;
+  justify-content: flex-end;
+  border: 2px solid yellow
+}
+
+.voteButton {
   font-size: 20px
 }
+

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Link} from "@reach/router"
+import VoteHandler from "./VoteHandler"
 
 export default class ArticleCard extends Component {
   render() {
@@ -11,6 +12,8 @@ export default class ArticleCard extends Component {
         <p>created_at: {article.created_at}</p>
         <p>votes: {article.votes}</p>
         <p>comment count: {article.comment_count}</p>
+<VoteHandler/>
+     
         </div>;
   }
 }

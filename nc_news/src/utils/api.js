@@ -42,5 +42,11 @@ exports.postComment = (articleId, username, comment) => {
 
 exports.deleteComment = (commentId) => {
   return axios.delete(baseURL+ `/comments/${commentId}`)
+}
 
+exports.voteComment = (commentId, vote) => {
+  console.log("voting")
+  return axios.patch(baseURL+`/comments/${commentId}`, {
+    inc_votes: vote
+  })
 }
