@@ -9,9 +9,6 @@ export default class CommentCard extends Component {
   hideComment = () => {
     return this.setState({display:false})
   }
-  updateVotes = (val) => {
-    return val
-  }
     render() {
       const {comment} = this.props
     return <div className="commentCard" >

@@ -11,6 +11,7 @@ export default class VoteHandler extends Component {
         return api.voteHandler(this.props.thing, this.props.id, 1).catch((err) => {console.log(err)})
     }
     render() {
+        console.log(this.props)
         return (
             <div className="voteForm">
                 <p> Votes: {this.props.votes + +this.state.vote }</p>
