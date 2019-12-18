@@ -17,7 +17,7 @@ export default class CommentsList extends Component {
     createCommentsList = () => {
         return this.state.comments.map((comment) => {
           return (
-          <CommentCard username={this.props.username} comment={comment} key={comment.comment_id}></CommentCard>)
+          <CommentCard username={this.props.username} comment={comment} key={comment.comment_id}/>)
         })
     }
 

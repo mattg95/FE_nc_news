@@ -5,10 +5,9 @@ export default class DeleteComment extends Component {
     handleClick = () => {
         return api.deleteComment(this.props.commentId).then(()=> {
             alert("comment deleted")
-        })
+        }).then(this.props.hideComment())
     }
     render() {
-        console.log
         return (
             <div>
                 <button onClick={this.handleClick} className="deleteButton">
