@@ -34,11 +34,12 @@ class ArticleList extends Component {
         })
       }
       render() {
-        console.log(this.props)
-
-    return (
-      <div className="ArticleList" >
-        {this.state.articles.length && this.createArticleList()}
+        if (!this.state.articles.length) {
+          return <h3>LOADING</h3>
+        }
+        else return (
+        <div className="ArticleList" >
+        {this.createArticleList()}
       </div>
     );
   }
