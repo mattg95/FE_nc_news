@@ -39,3 +39,8 @@ exports.postComment = (articleId, username, comment) => {
       body: comment
     })
 };
+
+exports.deleteComment = (commentId) => {
+  return axios.delete(baseURL+ `/comments/${commentId}`)
+
+}

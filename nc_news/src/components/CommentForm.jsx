@@ -15,11 +15,7 @@ export default class CommentForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const {articleId} = this.props
-    const {username} = this.props
-    const {comment} = this.state
-    return api.postComment(articleId,username,comment).then((comment) => {
-      console.log(comment)
+    return api.postComment(this.props.articleId,this.props.username,this.state.comment).then(() => {
       this.setState({ comment: "" })
     });
   };
@@ -37,7 +33,6 @@ export default class CommentForm extends Component {
           <input
             type="submit"
             className="topicsButton"
-            
           ></input>
         </form >
       </div>
