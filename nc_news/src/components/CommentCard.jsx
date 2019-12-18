@@ -10,7 +10,7 @@ export default class ArticleCard extends Component {
        <p>{comment.body}</p>
         <p>Author: {comment.author}</p>
         <p>Votes: {comment.votes}</p>
-        <VoteHandler commentId={comment.comment_id}/>
+        <VoteHandler id={comment.comment_id} thing={"comments"}/>
     </div>;
   }
 }
