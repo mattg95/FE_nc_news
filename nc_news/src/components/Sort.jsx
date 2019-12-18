@@ -7,12 +7,17 @@ export default class Sort extends Component {
         order: "",
     }
 
-    changeSort =() => {this.setState({sortBy: event.target.value})
+    changeSort = (event) => {
+        this.setState({sortBy: event.target.value})
     }
 
-    changeAsc = () => {this.setState({order: event.target.value})
+    changeAsc = (event) => {
+        this.setState({order: event.target.value})
     }
+
     render() {
+        const {topic} =this.props
+        const {sortBy, order} = this.state
         return (
             <div className="sort">
                 <form className="form">
@@ -31,7 +36,7 @@ export default class Sort extends Component {
                 </select>
                 </label>
                 </form>
-                <ArticleList topic={this.props.topic} sortBy={this.state.sortBy || "created_at"} order={this.state.order || "desc"}/>
+                <ArticleList topic={topic} sortBy={sortBy || "created_at"} order={order || "desc"}/>
               </div>
         )
     }

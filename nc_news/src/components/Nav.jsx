@@ -3,14 +3,11 @@ import {Link} from "@reach/router";
 
  class Nav extends Component {
    state = {
-     topic: "",
-
+     selectedTopic: "",
    }
-   setTopic = () => {
-     this.setState({topic: event.target.value})
-   }
-
-  
+  //  setTopic = () => {
+  //    this.setState({selectedTopic: event.target.value})
+  //  }
     render() {
         return (
           <div className="Nav">

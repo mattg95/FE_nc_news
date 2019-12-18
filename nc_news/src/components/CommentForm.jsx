@@ -7,15 +7,15 @@ export default class CommentForm extends Component {
   };
   handleChange = () => {
     this.setState(
-      {
-        comment: event.target.value
-      }
+      {comment: event.target.value}
     );
   };
 
   handleSubmit = (event) => {
+    const {articleId, username} = this.props
+    const {comment} = this.state
     event.preventDefault()
-    return api.postComment(this.props.articleId,this.props.username,this.state.comment).then(() => {
+    return api.postComment(articleId,username,comment).then(() => {
       this.setState({ comment: "" })
     });
   };

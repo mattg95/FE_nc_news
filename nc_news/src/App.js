@@ -14,11 +14,11 @@ class App extends Component {
     return (
       <div>
       <Header/>
-       <Nav/>
-      <Router>
-        <SingleArticle username={this.state.username} path="/articles/:articleId"/>
-        <Sort path="/articles/topic/:topic"/>
-        <Sort  path="/"/>
+        <Nav/>
+        <Router>
+          <SingleArticle username={this.state.username} path="/articles/:articleId"/>
+          <Sort path="/articles/topic/:topic"/>
+          <Sort  path="/"/>
       </Router>
       </div>
     );

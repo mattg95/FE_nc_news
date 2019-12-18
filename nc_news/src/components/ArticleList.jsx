@@ -5,34 +5,36 @@ import ArticleCard from "./ArticleCard"
 class ArticleList extends Component {
     state = {
         articles: [],
-        loading: true,
     }
-
       componentDidMount() { 
         return api.getAllArticles().then(articles => 
           this.setState({ articles })
-         );
+        );
       }
+
       componentDidUpdate(prevProps) {
-        if( (this.props.order !== prevProps.order) || (this.props.sortBy !== prevProps.sortBy) ){
-          api.sortArticles(this.props.sortBy, this.props.order).then(articles => this.setState({articles}))
+        const {order, sortBy, topic} = this.props
+        if( (order !== prevProps.order) || (sortBy !== prevProps.sortBy) ){
+          api.sortArticles(sortBy, order).then(articles => this.setState({articles}))
         }      
-        if (this.props.topic !== prevProps.topic){
-          if (!this.props.topic){
+        if (topic !== prevProps.topic){
+          if (!topic){
             api.getAllArticles().then(articles => 
-              this.setState({ articles }))
+            this.setState({ articles })
+            )
           }
           else {
-            api.getArticlesByTopic(this.props.topic).then(articles => this.setState({articles}))
+            api.getArticlesByTopic(topic).then(articles => this.setState({articles}))
           }
         }
-         
       }
+
       createArticleList = () => {
-        return this.state.articles.map((article) => {
-          return (<ArticleCard article={article} key={article.article_id}></ArticleCard>)
+        return this.state.articles.map((article, i) => {
+          return (<div key={i}>{ArticleCard(article)}</div>)
         })
       }
+      
       render() {
         if (!this.state.articles.length) {
           return <h3>LOADING</h3>

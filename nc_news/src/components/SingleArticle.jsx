@@ -8,19 +8,22 @@ export default class SingleArticle extends Component {
         article: ""
     }
     componentDidMount(){
-        return api.getArticleById(this.props.articleId).then(article => 
+        const {articleId} = this.props
+        return api.getArticleById(articleId).then(article => 
             this.setState({ article })
         );
     }
     render() {
+        const {title, body} = this.state.article
+        const {username, articleId} = this.props
         return (
         <div>
             <div className="singleArticle">
-                <h4>{this.state.article.title}</h4>
-                <p>{this.state.article.body}</p>
+                <h4>{title}</h4>
+                <p>{body}</p>
                 <VoteHandler/>
             </div>
-            <CommentsList username={this.props.username} articleId={this.props.articleId}/>
+            <CommentsList username={username} articleId={articleId}/>
         </div>
         )
     }

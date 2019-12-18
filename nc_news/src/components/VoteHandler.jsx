@@ -3,18 +3,25 @@ import * as api from "../utils/api"
 
 export default class VoteHandler extends Component {
     state = {
-        vote: 0
+        passedVote: 0,
+        loading: true
     }
     handleClick = (event) => {
-        this.setState({vote: event.target.value})
-        return api.voteHandler(this.props.thing, this.props.id, 1).catch((err) => {console.log(err)})
+        this.setState({passedVote: event.target.value})
+        return api.voteHandler(this.props.thing, this.props.id, 1)
+    }
+    componentDidMount = () => {
+        this.setState({loading: false})
     }
     render() {
+        const {passedVote} = this.state
+        const {votes} = this.props
+        {this.loading && <h2>LOADING!</h2>}
         return (
             <div className="voteForm">
-                <p> Votes: {this.props.votes? this.props.votes + +this.state.vote : "LOADING" }</p>
-                <button onClick={this.handleClick} value={1} disabled={this.state.vote > 0} className="voteButton">UpVote</button>
-                <button onClick={this.handleClick} value={-1} disabled={this.state.vote < 0} className="voteButton">DownVote</button>
+                <p> Votes: {votes? votes + +passedVote : "LOADING" }</p>
+                <button onClick={this.handleClick} value={1} disabled={passedVote > 0} className="voteButton">UpVote</button>
+                <button onClick={this.handleClick} value={-1} disabled={passedVote < 0} className="voteButton">DownVote</button>
             </div>
         )
     }
