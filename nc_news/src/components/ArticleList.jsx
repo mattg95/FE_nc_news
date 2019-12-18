@@ -28,13 +28,14 @@ class ArticleList extends Component {
         }
          
       }
-      
       createArticleList = () => {
         return this.state.articles.map((article) => {
           return (<ArticleCard article={article} key={article.article_id}></ArticleCard>)
         })
       }
       render() {
+        console.log(this.props)
+
     return (
       <div className="ArticleList" >
         {this.state.articles.length && this.createArticleList()}

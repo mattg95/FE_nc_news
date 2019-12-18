@@ -13,26 +13,25 @@ export default class Sort extends Component {
     changeAsc = () => {this.setState({order: event.target.value})
     }
     render() {
-   
         return (
             <div className="sort">
                 <form className="form">
                   <label> Sort By 
                 <select className="form" onChange={this.changeSort}>
-                    <option value="votes">Votes</option>
                     <option value="created_at">Date</option>
+                    <option value="votes">Votes</option>
                     <option value="comment_count">Comment count</option>
                 </select>
                     </label>
                     <label> Order  
                 <select className="form" onChange={this.changeAsc}>
                      <option value="" disabled defaultValue hidden>Order</option>
-                    <option >asc</option>
-                    <option >desc</option>
+                    <option value="desc">asc</option>
+                    <option value="asc">desc</option>
                 </select>
                 </label>
                 </form>
-                <ArticleList topic={this.props.topic} sortBy={this.state.sortBy} order={this.state.order || "asc"}/>
+                <ArticleList topic={this.props.topic} sortBy={this.state.sortBy || "created_at"} order={this.state.order || "desc"}/>
               </div>
         )
     }

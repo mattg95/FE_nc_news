@@ -9,7 +9,6 @@ export default class VoteHandler extends Component {
         return api.voteHandler(this.props.thing, this.props.id, -1).then(() => console.log("votes decreased"))
     }
     render() {
-        console.log(this.props)
         return (
             <div className="voteForm">
                 <button onClick={this.upVote} className="voteButton">UpVote</button>
