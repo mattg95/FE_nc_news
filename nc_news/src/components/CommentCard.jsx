@@ -10,7 +10,6 @@ export default class ArticleCard extends Component {
     return this.setState({display:false})
   }
     render() {
-      console.log(this.state)
     const {comment} = this.props
     return <div className="commentCard" >
       {this.state.display && <div>
