@@ -35,6 +35,7 @@ class Nav extends Component {
           <button className="topicsButton">ALL</button>
         </Link>
         {this.mapTopics()}
+        <h3>User: {this.props.username}</h3>
       </div>
     );
   }

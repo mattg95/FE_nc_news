@@ -2,7 +2,7 @@ import React from "react";
 import * as api from "../utils/api";
 import ErrorHandler from "./ErrorHandler";
 
-const DeleteComment = (commentId, hideComment) => {
+const DeleteComment = ({ commentId, hideComment }) => {
   const handleClick = () => {
     return api
       .deleteComment(commentId)

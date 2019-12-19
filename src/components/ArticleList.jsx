@@ -40,7 +40,7 @@ class ArticleList extends Component {
 
   createArticleList = () => {
     return this.state.articles.map((article, i) => {
-      return <div key={i}>{ArticleCard(article)}</div>;
+      return <div key={i}>{<ArticleCard article={article} />}</div>;
     });
   };
 

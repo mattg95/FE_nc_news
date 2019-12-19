@@ -13,15 +13,13 @@ class App extends Component {
   };
 
   render() {
+    const { username } = this.state;
     return (
       <div>
         <Header />
-        <Nav />
+        <Nav username={username} />
         <Router>
-          <SingleArticle
-            username={this.state.username}
-            path="/articles/:articleId"
-          />
+          <SingleArticle username={username} path="/articles/:articleId" />
           <Sort path="/articles/topic/:topic" />
           <Sort path="/" />
           <ErrorHandler default />
