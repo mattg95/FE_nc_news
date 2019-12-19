@@ -5,12 +5,13 @@ import CommentForm from "./CommentForm";
 
 export default class CommentsList extends Component {
   state = {
+    loading: true,
     comments: []
   };
   componentDidMount() {
     return api
       .getCommentsForArticle(this.props.articleId)
-      .then(comments => this.setState({ comments }));
+      .then(comments => this.setState({ comments, loading: false }));
   }
   createCommentsList = () => {
     const { comments } = this.state;
@@ -27,13 +28,10 @@ export default class CommentsList extends Component {
   };
 
   render() {
-    const { comments } = this.state;
     const { username, articleId } = this.props;
-    if (!comments.length) {
-      return <h3>LOADING</h3>;
-    }
     return (
       <div className="commentsList">
+        {this.state.loading && <h3>LOADING</h3>}
         <h4>Comments</h4>
         {this.createCommentsList()}
         <CommentForm username={username} articleId={articleId} />

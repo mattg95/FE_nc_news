@@ -15,7 +15,9 @@ export default class CommentCard extends Component {
       <div className="commentCard">
         {this.state.display && (
           <div>
-            {this.props.username === author && <div >delete:{DeleteComment(comment_id, this.hideComment)}</div>}
+            {this.props.username === author && (
+              <div>delete:{DeleteComment(comment_id, this.hideComment)}</div>
+            )}
             <p>{body}</p>
             <p>Author: {author}</p>
             <VoteHandler id={comment_id} thing={"comments"} votes={votes} />

@@ -1,33 +1,40 @@
-import React, { Component } from 'react'
-import {Link} from "@reach/router";
+import React, { Component } from "react";
+import { Link } from "@reach/router";
+import * as api from "../utils/api";
 
- class Nav extends Component {
-   state = {
-     selectedTopic: "",
-   }
-  //  setTopic = () => {
-  //    this.setState({selectedTopic: event.target.value})
-  //  }
-    render() {
-        return (
-          <div className="Nav">
-          <form >
-            <Link to="/">
-              <button className="topicsButton" >All</button>
-              </Link>
-            <Link to="/articles/topic/coding">
-              <button className="topicsButton" value="coding" onClick={this.setTopic}>Coding</button>
-            </Link>
-            <Link to="/articles/topic/football">
-              <button className="topicsButton" value="football" onClick={this.setTopic}>Football</button>
-            </Link>
-            <Link to="/articles/topic/cooking">
-              <button className="topicsButton" value="cooking" onClick={this.setTopic}>Cooking</button>
-            </Link>
-          </form>
-          </div>
-        );
-      }
+class Nav extends Component {
+  state = {
+    topics: [],
+    loading: true
+  };
+  componentDidMount() {
+    api.getTopics().then(topics => this.setState({ topics }));
+    this.setState({ loading: false });
+  }
+  mapTopics = () => {
+    const { topics } = this.state;
+    return topics.map((topic, i) => {
+      const { slug } = topic;
+      return (
+        <Link to={`/articles/topic/${slug}`} key={i}>
+          <button className="topicsButton" value={slug} onClick={this.setTopic}>
+            {slug.toUpperCase()}
+          </button>
+        </Link>
+      );
+    });
+  };
+  render() {
+    return (
+      <div className="Nav">
+        {this.state.loading && <h3>LOADING</h3>}
+        <Link to="/">
+          <button className="topicsButton">ALL</button>
+        </Link>
+        {this.mapTopics()}
+      </div>
+    );
+  }
 }
 
-export default Nav
+export default Nav;
