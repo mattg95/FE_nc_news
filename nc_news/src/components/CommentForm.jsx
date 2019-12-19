@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
+import ErrorHandler from "./ErrorHandler";
 
 export default class CommentForm extends Component {
   state = {
     comment: ""
   };
   handleChange = () => {
-    this.setState(
-      {comment: event.target.value}
-    );
+    this.setState({ comment: event.target.value });
   };
 
-  handleSubmit = (event) => {
-    const {articleId, username} = this.props
-    const {comment} = this.state
-    event.preventDefault()
-    return api.postComment(articleId,username,comment).then(() => {
-      this.setState({ comment: "" })
+  handleSubmit = event => {
+    const { articleId, username } = this.props;
+    const { comment } = this.state;
+    event.preventDefault();
+    return api.postComment(articleId, username, comment).then(() => {
+      this.setState({ comment: "" }).catch(err => ErrorHandler(err));
     });
   };
-  
+
   render() {
     return (
       <div className="commentForm">
@@ -30,11 +29,8 @@ export default class CommentForm extends Component {
             className="commentInput"
             onChange={this.handleChange}
           ></input>
-          <input
-            type="submit"
-            className="topicsButton"
-          ></input>
-        </form >
+          <input type="submit" className="topicsButton"></input>
+        </form>
       </div>
     );
   }

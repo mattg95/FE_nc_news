@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import ErrorHandler from "./ErrorHandler";
 
 class ArticleList extends Component {
   state = {
@@ -10,7 +11,8 @@ class ArticleList extends Component {
   componentDidMount() {
     return api
       .getAllArticles()
-      .then(articles => this.setState({ articles: articles, loading: false }));
+      .then(articles => this.setState({ articles: articles, loading: false }))
+      .catch(err => ErrorHandler(err));
   }
 
   componentDidUpdate(prevProps) {
@@ -18,15 +20,20 @@ class ArticleList extends Component {
     if (order !== prevProps.order || sortBy !== prevProps.sortBy) {
       api
         .sortArticles(sortBy, order)
-        .then(articles => this.setState({ articles }));
+        .then(articles => this.setState({ articles }))
+        .catch(err => ErrorHandler(err));
     }
     if (topic !== prevProps.topic) {
       if (!topic) {
-        api.getAllArticles().then(articles => this.setState({ articles }));
+        api
+          .getAllArticles()
+          .then(articles => this.setState({ articles }))
+          .catch(err => ErrorHandler(err));
       } else {
         api
           .getArticlesByTopic(topic)
-          .then(articles => this.setState({ articles }));
+          .then(articles => this.setState({ articles }))
+          .catch(err => ErrorHandler(err));
       }
     }
   }

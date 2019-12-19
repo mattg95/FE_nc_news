@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../utils/api";
+import ErrorHandler from "./ErrorHandler";
 
 class Nav extends Component {
   state = {
@@ -8,8 +9,10 @@ class Nav extends Component {
     loading: true
   };
   componentDidMount() {
-    api.getTopics().then(topics => this.setState({ topics }));
-    this.setState({ loading: false });
+    api
+      .getTopics()
+      .then(topics => this.setState({ topics, loading: false }))
+      .catch(err => ErrorHandler(err));
   }
   mapTopics = () => {
     const { topics } = this.state;

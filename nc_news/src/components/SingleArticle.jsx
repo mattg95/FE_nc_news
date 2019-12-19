@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import CommentsList from "./CommentsList";
 import VoteHandler from "./VoteHandler";
+import ErrorHandler from "./ErrorHandler";
 
 export default class SingleArticle extends Component {
   state = { loading: true, article: "" };
@@ -9,7 +10,8 @@ export default class SingleArticle extends Component {
     const { articleId } = this.props;
     return api
       .getArticleById(articleId)
-      .then(article => this.setState({ article, loading: false }));
+      .then(article => this.setState({ article, loading: false }))
+      .catch(err => ErrorHandler(err));
   }
   render() {
     const { title, body, votes } = this.state.article;

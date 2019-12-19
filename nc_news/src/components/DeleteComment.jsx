@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "../utils/api";
+import ErrorHandler from "./ErrorHandler";
 
 const DeleteComment = (commentId, hideComment) => {
   const handleClick = () => {
@@ -8,7 +9,8 @@ const DeleteComment = (commentId, hideComment) => {
       .then(() => {
         alert("comment deleted");
       })
-      .then(hideComment());
+      .then(hideComment())
+      .catch(err => ErrorHandler(err));
   };
   return (
     <div>

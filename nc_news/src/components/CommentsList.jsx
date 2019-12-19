@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 import CommentForm from "./CommentForm";
+import ErrorHandler from "./ErrorHandler";
 
 export default class CommentsList extends Component {
   state = {
@@ -11,7 +12,8 @@ export default class CommentsList extends Component {
   componentDidMount() {
     return api
       .getCommentsForArticle(this.props.articleId)
-      .then(comments => this.setState({ comments, loading: false }));
+      .then(comments => this.setState({ comments, loading: false }))
+      .catch(err => ErrorHandler(err));
   }
   createCommentsList = () => {
     const { comments } = this.state;

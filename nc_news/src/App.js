@@ -1,25 +1,31 @@
-import React, { Component } from 'react';
-import Header from "./components/Header"
-import Nav from "./components/Nav"
-import './App.css';
-import {Router} from "@reach/router"
-import SingleArticle from "./components/SingleArticle"
-import Sort from "./components/Sort"
+import React, { Component } from "react";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import "./App.css";
+import { Router } from "@reach/router";
+import SingleArticle from "./components/SingleArticle";
+import Sort from "./components/Sort";
+import ErrorHandler from "./components/ErrorHandler";
 
 class App extends Component {
   state = {
-    username:"jessjelly"
-  }
+    username: "jessjelly"
+  };
+
   render() {
     return (
       <div>
-      <Header/>
-        <Nav/>
+        <Header />
+        <Nav />
         <Router>
-          <SingleArticle username={this.state.username} path="/articles/:articleId"/>
-          <Sort path="/articles/topic/:topic"/>
-          <Sort  path="/"/>
-      </Router>
+          <SingleArticle
+            username={this.state.username}
+            path="/articles/:articleId"
+          />
+          <Sort path="/articles/topic/:topic" />
+          <Sort path="/" />
+          <ErrorHandler default />
+        </Router>
       </div>
     );
   }
