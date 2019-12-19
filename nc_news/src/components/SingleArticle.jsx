@@ -14,14 +14,14 @@ export default class SingleArticle extends Component {
         );
     }
     render() {
-        const {title, body} = this.state.article
+        const {title, body, votes} = this.state.article
         const {username, articleId} = this.props
         return (
         <div>
             <div className="singleArticle">
                 <h4>{title}</h4>
                 <p>{body}</p>
-                <VoteHandler/>
+                <VoteHandler id={+articleId} thing={"articles"} votes={votes}/>
             </div>
             <CommentsList username={username} articleId={articleId}/>
         </div>

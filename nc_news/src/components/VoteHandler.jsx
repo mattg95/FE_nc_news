@@ -16,13 +16,12 @@ export default class VoteHandler extends Component {
     render() {
         const {passedVote} = this.state
         const {votes} = this.props
-        {this.loading && <h2>LOADING!</h2>}
-        return (
+        return this.state.loading?<h2>LOADING!</h2>:
             <div className="voteForm">
-                <p> Votes: {votes? votes + +passedVote : "LOADING" }</p>
+                <p> Votes: { votes + +passedVote}</p>
                 <button onClick={this.handleClick} value={1} disabled={passedVote > 0} className="voteButton">UpVote</button>
                 <button onClick={this.handleClick} value={-1} disabled={passedVote < 0} className="voteButton">DownVote</button>
             </div>
-        )
+        
     }
 }
