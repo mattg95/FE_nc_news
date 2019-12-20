@@ -15,7 +15,6 @@ export default class CommentsList extends Component {
       .getCommentsForArticle(this.props.articleId)
       .then(comments => this.setState({ comments, loading: false }))
       .catch(err => {
-        console.dir(err);
         this.setState({ err: "err" });
       });
   }

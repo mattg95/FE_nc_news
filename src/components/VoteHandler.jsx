@@ -19,7 +19,8 @@ export default class VoteHandler extends Component {
   };
   render() {
     const { passedVote } = this.state;
-    const { votes } = this.props;
+    const { votes, userComment } = this.props;
+    console.log(this.props);
     return this.state.loading ? (
       <h2>LOADING!</h2>
     ) : (
@@ -28,7 +29,7 @@ export default class VoteHandler extends Component {
         <button
           onClick={this.handleClick}
           value={1}
-          disabled={passedVote > 0}
+          disabled={userComment || passedVote > 0}
           className="voteButton"
         >
           UpVote
@@ -36,7 +37,7 @@ export default class VoteHandler extends Component {
         <button
           onClick={this.handleClick}
           value={-1}
-          disabled={passedVote < 0}
+          disabled={userComment || passedVote < 0}
           className="voteButton"
         >
           DownVote
