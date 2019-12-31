@@ -9,6 +9,7 @@ export default class CommentForm extends Component {
     displayedComment: "",
     returnedData: {}
   };
+
   handleChange = () => {
     this.setState({ comment: event.target.value });
   };

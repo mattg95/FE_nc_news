@@ -6,7 +6,7 @@ const DeleteComment = ({ comment_id, hideComment }) => {
   const handleClick = () => {
     return api
       .deleteComment(comment_id)
-      .then(hideComment())
+      .then(() => hideComment())
       .catch(err => ErrorHandler(err));
   };
   return (

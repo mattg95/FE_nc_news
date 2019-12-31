@@ -98,7 +98,7 @@
 
   - and again
 
-- [ ] Can post new comments, which are persistent
+- [x] Can post new comments, which are persistent
 
   - yes, but the comments don't appear immediately which is a problem. You need to alter state to include the new comment after posting it.
 
@@ -140,7 +140,7 @@
 
   - seems good
 
-- [ ] Components reused where possible (`Articles` / `Voter`...)
+- [x] Components reused where possible (`Articles` / `Voter`...)
 
   - `VoteHandler` is great, just needs a little fix for the problems described earlier. Also good to see `Sort` / `ArticleList` handling both of those routes. The way you use `ArticleCard` in the list is problematic - you are treating the component just as a function. It will work but could cause problems with optimising rendering and extending down from that branch in the future. Make sure you use JSX (i.e. `<ArticleCard />`) for anything that's a component.
 
@@ -148,7 +148,7 @@
 
   - can't see any problems here.
 
-- [ ] Set state correctly, using previous state where possible
+- [x] Set state correctly, using previous state where possible
 
   - just a quick note on `DeleteComment` - the way you hide the comment could cause problems, because you hide the comment even if there is an error. When you write something like `.then(hideComment());` the hiding will actually happen before you get to the `then` block. That's because what you are passing to `then` should be a callback function, so your function will be evaluated in order to see what is passed to `then`. You need something like `.then(() => hideComment());` or even `.then(hideComment);` - either way, it's a function.
 
@@ -156,15 +156,15 @@
 
   - seems pretty good
 
-- [ ] Functions are DRY (`handleChange` for controlled components / api calls)
+- [x] Functions are DRY (`handleChange` for controlled components / api calls)
 
   - mainly good, but could you change your handlers in the `Sort` component so you just use one?
 
-- [ ] Use object destructuring where possible
+- [x] Use object destructuring where possible
 
   - mainly good again but do try to be entirely consistent (i.e. `VoteHandler`)
 
-- [ ] Tidy? If not: ESLint / Prettier
+- [x] Tidy? If not: ESLint / Prettier
 
   - not bad, just turning Format on Save on in the settings should tidy stuff up a bit?
 

@@ -7,12 +7,8 @@ export default class Sort extends Component {
     order: ""
   };
 
-  changeSort = event => {
-    this.setState({ sortBy: event.target.value });
-  };
-
-  changeAsc = event => {
-    this.setState({ order: event.target.value });
+  changeOrder = (event, subState) => {
+    this.setState({ [subState]: event.target.value });
   };
 
   render() {
@@ -24,7 +20,12 @@ export default class Sort extends Component {
           <label>
             {" "}
             Sort By
-            <select className="form" onChange={this.changeSort}>
+            <select
+              className="form"
+              onChange={() => {
+                this.changeOrder(event, "sortBy");
+              }}
+            >
               <option value="created_at">Date</option>
               <option value="votes">Votes</option>
               <option value="comment_count">Comment count</option>
@@ -33,7 +34,12 @@ export default class Sort extends Component {
           <label>
             {" "}
             Order
-            <select className="form" onChange={this.changeAsc}>
+            <select
+              className="form"
+              onChange={() => {
+                this.changeOrder(event, "order");
+              }}
+            >
               <option value="" disabled defaultValue hidden>
                 Order
               </option>

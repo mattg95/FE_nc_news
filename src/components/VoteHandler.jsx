@@ -7,13 +7,13 @@ export default class VoteHandler extends Component {
     loading: true
   };
   handleClick = event => {
-    this.setState({ passedVote: this.state.passedVote + +event.target.value });
-    return api.voteHandler(
-      this.props.thing,
-      this.props.id,
-      +event.target.value
-    );
+    const { thing, id } = this.props;
+    const { value } = event.target;
+    const { passedVote } = this.state;
+    this.setState({ passedVote: passedVote + +value });
+    return api.voteHandler(thing, id, +value);
   };
+
   componentDidMount = () => {
     this.setState({ loading: false });
   };
