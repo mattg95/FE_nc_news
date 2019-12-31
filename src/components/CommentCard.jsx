@@ -11,7 +11,6 @@ export default class CommentCard extends Component {
   };
   render() {
     const { author, comment_id, body, votes } = this.props.comment;
-    console.log(this.props.username === author);
     return (
       <div className="commentCard">
         {this.state.display && (

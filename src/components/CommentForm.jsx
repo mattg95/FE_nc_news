@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
-// import ErrorHandler from "./ErrorHandler";
 import CommentCard from "./CommentCard";
+import ErrorHandler from "./ErrorHandler";
 
 export default class CommentForm extends Component {
   state = {
     comment: "",
-    displayedComment: ""
+    displayedComment: "",
+    returnedData: {}
   };
   handleChange = () => {
     this.setState({ comment: event.target.value });
@@ -16,12 +17,16 @@ export default class CommentForm extends Component {
     const { articleId, username } = this.props;
     const { comment } = this.state;
     event.preventDefault();
-    return api.postComment(articleId, username, comment).then(() => {
-      this.setState({
-        displayedComment: this.state.comment,
-        comment: ""
-      });
-    });
+    return api
+      .postComment(articleId, username, comment)
+      .then(res => {
+        this.setState({
+          displayedComment: this.state.comment,
+          comment: "",
+          returnedData: res.data.comment
+        });
+      })
+      .catch(err => ErrorHandler(err));
   };
 
   render() {
@@ -29,12 +34,9 @@ export default class CommentForm extends Component {
       <div className="commentForm">
         {this.state.displayedComment && (
           <CommentCard
-            username={this.props.username}
-            comment={{
-              author: this.props.username,
-              body: this.state.displayedComment,
-              votes: 0
-            }}
+            username={this.state.returnedData.author}
+            comment={this.state.returnedData}
+            key={this.state.comment_id}
           />
         )}
 

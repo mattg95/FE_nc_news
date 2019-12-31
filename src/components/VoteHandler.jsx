@@ -20,7 +20,6 @@ export default class VoteHandler extends Component {
   render() {
     const { passedVote } = this.state;
     const { votes, userComment } = this.props;
-    console.log(this.props);
     return this.state.loading ? (
       <h2>LOADING!</h2>
     ) : (
