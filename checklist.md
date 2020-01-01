@@ -112,7 +112,7 @@
 
 ## Error Handling
 
-- [ ] Bad url
+- [x] Bad url
 
   - not yet handled
 
