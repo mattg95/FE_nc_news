@@ -46,6 +46,7 @@ export default class CommentForm extends Component {
           <input
             type="text"
             className="commentInput"
+            required={true}
             onChange={this.handleChange}
             value={this.state.comment}
           ></input>

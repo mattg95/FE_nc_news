@@ -33,21 +33,18 @@ exports.getCommentsForArticle = articleId => {
 };
 
 exports.postComment = (articleId, username, comment) => {
-  return axios
-    .post(baseURL + `/articles/${articleId}/comments`, {
-      username: username,
-      body: comment
-    })
+  return axios.post(baseURL + `/articles/${articleId}/comments`, {
+    username: username,
+    body: comment
+  });
 };
 
-exports.deleteComment = (commentId) => {
-  return axios.delete(baseURL+ `/comments/${commentId}`)
-}
+exports.deleteComment = commentId => {
+  return axios.delete(baseURL + `/comments/${commentId}`);
+};
 
 exports.voteHandler = (thing, id, vote) => {
-  return axios.patch(baseURL+`/${thing}/${id}`, {
+  return axios.patch(baseURL + `/${thing}/${id}`, {
     inc_votes: vote
-  })
-}
-
-
+  });
+};

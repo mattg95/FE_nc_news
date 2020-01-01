@@ -120,11 +120,11 @@
 
   - not yet handled (fetches everything)
 
-- [ ] Bad article id in url
+- [x] Bad article id in url
 
   - not yet handled
 
-- [ ] Post comment: (No text in comment body / Can you post without logging in?)
+- [x] Post comment: (No text in comment body / Can you post without logging in?)
 
   - easy fix: use `required` attribute on the form's textarea.
 
