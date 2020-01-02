@@ -23,23 +23,23 @@ export default class VoteHandler extends Component {
     return this.state.loading ? (
       <h2>LOADING!</h2>
     ) : (
-      <div className="voteForm">
-        <p> Votes: {votes + +passedVote}</p>
+      <div className="VoteForm">
+        <p className="DisplayVotes"> Votes: {votes + +passedVote}</p>
         <button
           onClick={this.handleClick}
           value={1}
           disabled={userComment || passedVote > 0}
-          className="voteButton"
+          className="VoteButton"
         >
-          UpVote
+          Upvote
         </button>
         <button
           onClick={this.handleClick}
           value={-1}
           disabled={userComment || passedVote < 0}
-          className="voteButton"
+          className="VoteButton"
         >
-          DownVote
+          Downvote
         </button>
       </div>
     );

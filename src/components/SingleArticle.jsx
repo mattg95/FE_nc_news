@@ -19,7 +19,7 @@ export default class SingleArticle extends Component {
     else if (this.state.loading) return <h2>LOADING</h2>;
     return (
       <div>
-        <div className="singleArticle">
+        <div className="SingleArticle">
           <h4>{title}</h4>
           <p>{body}</p>
           <VoteHandler id={+articleId} thing={"articles"} votes={votes} />

@@ -11,7 +11,7 @@ const DeleteComment = ({ comment_id, hideComment }) => {
   };
   return (
     <div>
-      <button onClick={handleClick} className="deleteButton">
+      <button onClick={handleClick} className="DeleteButton">
         Delete
       </button>
     </div>

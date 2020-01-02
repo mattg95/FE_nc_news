@@ -15,8 +15,8 @@ export default class Sort extends Component {
     const { topic } = this.props;
     const { sortBy, order } = this.state;
     return (
-      <div className="sort">
-        <form className="form">
+      <div className="Sort">
+        <form className="Form">
           <label>
             {" "}
             Sort By

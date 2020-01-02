@@ -32,7 +32,7 @@ export default class CommentForm extends Component {
 
   render() {
     return (
-      <div className="commentForm">
+      <div className="CommentForm">
         {this.state.displayedComment && (
           <CommentCard
             username={this.state.returnedData.author}
@@ -45,12 +45,12 @@ export default class CommentForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            className="commentInput"
+            className="CommentInput"
             required={true}
             onChange={this.handleChange}
             value={this.state.comment}
           ></input>
-          <input type="submit" className="topicsButton"></input>
+          <input type="submit" className="TopicsButton"></input>
         </form>
       </div>
     );

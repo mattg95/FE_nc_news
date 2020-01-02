@@ -12,7 +12,7 @@ export default class CommentCard extends Component {
   render() {
     const { author, comment_id, body, votes } = this.props.comment;
     return (
-      <div className="commentCard">
+      <div className="CommentCard">
         {this.state.display && (
           <div>
             {this.props.username === author && (

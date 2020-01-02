@@ -20,7 +20,7 @@ class Nav extends Component {
       const { slug } = topic;
       return (
         <Link to={`/articles/topic/${slug}`} key={i}>
-          <button className="topicsButton" value={slug} onClick={this.setTopic}>
+          <button className="TopicsButton" value={slug} onClick={this.setTopic}>
             {slug.toUpperCase()}
           </button>
         </Link>
@@ -30,11 +30,13 @@ class Nav extends Component {
   render() {
     return (
       <div className="Nav">
-        {this.state.loading && <h3>LOADING</h3>}
-        <Link to="/">
-          <button className="topicsButton">ALL</button>
-        </Link>
-        {this.mapTopics()}
+        <div className="TopicsButtons">
+          {this.state.loading && <h3>LOADING</h3>}
+          <Link to="/">
+            <button className="TopicsButton">ALL</button>
+          </Link>
+          {this.mapTopics()}
+        </div>
         <h3>User: {this.props.username}</h3>
       </div>
     );

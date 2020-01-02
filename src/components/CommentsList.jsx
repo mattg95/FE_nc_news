@@ -37,7 +37,7 @@ export default class CommentsList extends Component {
     if (this.state.loading) return <h3>LOADING</h3>;
     if (this.state.err) return <ErrorHandler err={this.state.err} />;
     return (
-      <div className="commentsList">
+      <div className="CommentsList">
         <h4>Comments</h4>
         {this.createCommentsList()}
         <CommentForm username={username} articleId={articleId} />

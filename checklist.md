@@ -116,7 +116,7 @@
 
   - not yet handled
 
-- [ ] Bad topic slug in url
+- [x] Bad topic slug in url
 
   - not yet handled (fetches everything)
 

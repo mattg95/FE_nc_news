@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans:regular,bold,italic&subset=latin,latin-ext");
+
 .App {
   border: 2px solid darkblue;
+  font-family: "Open Sans", sans-serif;
 }
 
 .Header {
-  font-family: "roboto";
+  font-family: "roboto", serif;
   display: flex;
   justify-content: center;
   font-size: 40px;
@@ -14,60 +17,93 @@
   border: 2px solid red;
 }
 
-.topicsButton {
-  font-size: 20px;
+.TopicsButtons {
+  border: 2px solid blue;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.TopicsButton {
+  font-family: "roboto", serif;
+  font-size: 4vw;
+  width: 24.5vw;
+  border: 1px solid black;
 }
 
 .ArticleList {
   border: 2px solid yellow;
 }
 
-.articleCard {
+.ArticleCard {
   border: 2px solid green;
+  padding: 10px;
 }
 
-.sort {
+.Sort {
   border: 2px solid orange;
 }
 
-.form {
+.Form {
   font-size: 20px;
 }
 
-.singleArticle {
+.SingleArticle {
   border: 2px solid purple;
+  padding: 10px;
 }
 
-.commentsList {
+.CommentsList {
   border: 2px solid yellow;
 }
 
-.commentCard {
+.CommentCard {
   border: 2px solid lightblue;
+  padding: 10px;
 }
 
-.commentForm {
+.CommentForm {
   border: 2px solid orange;
 }
 
-.commentInput {
+.CommentInput {
   width: 90vw;
   height: 10vw;
 }
 
-.deleteButton {
+.DeleteButton {
+  font-family: "Open Sans", sans-serif;
   float: right;
   font-size: 20px;
   border: 2px solid orange;
 }
 
-.voteForm {
+.VoteForm {
+  font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: flex-end;
   border: 2px solid purple;
 }
 
-.voteButton {
+.VoteButton {
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
   float: right;
   font-size: 20px;
+}
+
+.DisplayVotes {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.UserMessage {
+  font-family: "roboto", serif;
+
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
 }
