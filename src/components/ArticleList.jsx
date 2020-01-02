@@ -66,7 +66,7 @@ class ArticleList extends Component {
 
     return (
       <div className="ArticleList">
-        {loading && <h2>LOADING</h2>}
+        {loading && <h1>LOADING</h1>}
         {!topic && this.createArticleList()}
         {!loading && this.checkForArticles()}
       </div>

@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Nav username={username} />
-        <Router>
+        <Router primary={false}>
           <SingleArticle username={username} path="/articles/:articleId" />
           <Sort path="/articles/topic/:topic" />
           <Sort path="/*" />
