@@ -1,4 +1,5 @@
 .Header {
+  font-family: "roboto";
   display: flex;
   justify-content: center;
   font-size: 40px;
@@ -6,63 +7,63 @@
 }
 
 .Nav {
-border: 2px solid red;
+  border: 2px solid red;
 }
 
 .topicsButton {
-  font-size: 20px
+  font-size: 20px;
 }
 
 .ArticleList {
-  border: 2px solid yellow
+  border: 2px solid yellow;
 }
 
 .articleCard {
-  border: 2px solid green
+  border: 2px solid green;
 }
 
 .sort {
-  border:2px solid orange
+  border: 2px solid orange;
 }
 
 .form {
-  font-size: 20px
+  font-size: 20px;
 }
 
 .singleArticle {
-  border: 2px solid purple
+  border: 2px solid purple;
 }
 
 .commentsList {
-  border: 2px solid yellow
+  border: 2px solid yellow;
 }
 
 .commentCard {
-  border: 2px solid lightblue
+  border: 2px solid lightblue;
 }
 
 .commentForm {
-  border: 2px solid orange
+  border: 2px solid orange;
 }
 
-.commentInput{
+.commentInput {
   width: 90vw;
-  height:10vw
+  height: 10vw;
 }
 
 .deleteButton {
-  float:right;
+  float: right;
   font-size: 20px;
-  border: 2px solid orange
+  border: 2px solid orange;
 }
 
 .voteForm {
   display: flex;
   justify-content: flex-end;
-  border: 2px solid purple
+  border: 2px solid purple;
 }
 
-.voteButton {float:right;
-  font-size: 20px
+.voteButton {
+  float: right;
+  font-size: 20px;
 }
-

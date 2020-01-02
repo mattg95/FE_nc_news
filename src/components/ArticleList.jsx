@@ -45,10 +45,17 @@ class ArticleList extends Component {
   };
 
   render() {
+    const { topic } = this.props;
+    const { articles } = this.state;
     return (
       <div className="ArticleList">
         {this.state.loading && <h2>LOADING</h2>}
-        {this.createArticleList()}
+        {!topic && this.createArticleList()}
+        {articles.every(article => article.topic !== topic) ? (
+          <h2>No articles found</h2>
+        ) : (
+          this.createArticleList()
+        )}
       </div>
     );
   }

@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <SingleArticle username={username} path="/articles/:articleId" />
           <Sort path="/articles/topic/:topic" />
-          <Sort path="/" />
+          <Sort path="/*" />
           <ErrorHandler default />
         </Router>
       </div>
