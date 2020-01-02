@@ -70,7 +70,7 @@ class ArticleList extends Component {
           </div>
         )}
         {!topic && this.createArticleList()}
-        {!loading && this.checkForArticles()}
+        {topic && !loading && this.checkForArticles()}
       </div>
     );
   }

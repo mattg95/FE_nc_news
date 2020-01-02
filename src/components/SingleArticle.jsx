@@ -20,7 +20,7 @@ export default class SingleArticle extends Component {
     return (
       <div>
         <div className="SingleArticle">
-          <h4>{title}</h4>
+          <h4 className="ArticleTitle">{title}</h4>
           <p>{body}</p>
           <VoteHandler id={+articleId} thing={"articles"} votes={votes} />
         </div>

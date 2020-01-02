@@ -17,11 +17,11 @@ export default class Sort extends Component {
     return (
       <div className="Sort">
         <form className="Form">
-          <label>
+          <label className="Form">
             {" "}
             Sort By
             <select
-              className="form"
+              className="Form"
               onChange={() => {
                 this.changeOrder(event, "sortBy");
               }}
@@ -35,7 +35,7 @@ export default class Sort extends Component {
             {" "}
             Order
             <select
-              className="form"
+              className="Form"
               onChange={() => {
                 this.changeOrder(event, "order");
               }}

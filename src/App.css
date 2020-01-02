@@ -10,16 +10,23 @@
   display: flex;
   justify-content: center;
   font-size: 40px;
-  border: 2px solid blue;
+  border: 2px solid black;
+  background-color: white;
 }
 
 .Nav {
-  border: 2px solid red;
+  border: 2px solid darkblue;
+  background: white;
+}
+
+.UserDisplay {
+  margin: 10px;
+  color: black;
 }
 
 .TopicsButtons {
-  border: 2px solid blue;
-  width: 100%;
+  border: 2px solid darkblue;
+  width: auto;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -28,31 +35,43 @@
 }
 .TopicsButton {
   font-family: "roboto", serif;
-  font-size: 4vw;
+  font-size: calc(18px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   width: 24.5vw;
-  border: 1px solid black;
+  border: 1px solid darkblue;
 }
-
-.ArticleList {
-  border: 2px solid yellow;
+.TopicsButton:focus {
+  border: 1px solid yellow;
 }
 
 .ArticleCard {
-  border: 2px solid green;
   padding: 10px;
+  border: 2px solid yellow;
+  background: #f0f0f0;
+}
+
+.ArticleTitle {
+  font-family: "roboto", serif;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
 }
 
 .Sort {
-  border: 2px solid orange;
+  border: 2px solid lightblue;
 }
 
 .Form {
-  font-size: 20px;
+  font-size: 22px;
+  margin: 2px;
+}
+.Form:focus {
+  border: 1px solid yellow;
 }
 
 .SingleArticle {
-  border: 2px solid purple;
+  border: 2px solid lightblue;
   padding: 10px;
+  background: #f0f0f0;
 }
 
 .CommentsList {
@@ -65,33 +84,46 @@
 }
 
 .CommentForm {
-  border: 2px solid orange;
+  margin: 10px;
 }
 
 .CommentInput {
-  width: 90vw;
+  width: 92vw;
   height: 10vw;
+  background-color: #f0f0f0;
 }
 
 .DeleteButton {
   font-family: "Open Sans", sans-serif;
   float: right;
   font-size: 20px;
-  border: 2px solid orange;
+  border: 2px solid lightblue;
 }
 
 .VoteForm {
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: flex-end;
-  border: 2px solid purple;
+  border: 2px solid darkblue;
+  background: white;
+  width: auto;
 }
 
 .VoteButton {
   font-family: "Open Sans", sans-serif;
-  padding: 10px;
   float: right;
   font-size: 20px;
+  background: lightgrey;
+}
+
+.VoteButton:focus {
+  border: 1px solid yellow;
+}
+
+.SubmitButton {
+  font-size: 20px;
+  margin: 10px;
+  border: 1px solid darkblue;
 }
 
 .DisplayVotes {
@@ -99,9 +131,12 @@
   font-size: 20px;
 }
 
+.Submitbutton:focus {
+  border: 1px solid yellow;
+}
+
 .UserMessage {
   font-family: "roboto", serif;
-
   font-size: 20px;
   display: flex;
   justify-content: center;

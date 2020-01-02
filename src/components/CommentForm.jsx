@@ -50,7 +50,7 @@ export default class CommentForm extends Component {
             onChange={this.handleChange}
             value={this.state.comment}
           ></input>
-          <input type="submit" className="TopicsButton"></input>
+          <input type="submit" className="SubmitButton"></input>
         </form>
       </div>
     );
