@@ -38,7 +38,7 @@ export default class CommentsList extends Component {
     if (this.state.err) return <ErrorHandler err={this.state.err} />;
     return (
       <div className="CommentsList">
-        <h4>Comments</h4>
+        <h4 className="CommentsHeaders">Comments</h4>
         {this.createCommentsList()}
         <CommentForm username={username} articleId={articleId} />
       </div>

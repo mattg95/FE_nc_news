@@ -36,7 +36,7 @@
 .TopicsButton {
   font-family: "roboto", serif;
   font-size: calc(18px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  width: 24.5vw;
+  width: 24.6vw;
   border: 1px solid darkblue;
 }
 .TopicsButton:focus {
@@ -69,13 +69,14 @@
 }
 
 .SingleArticle {
-  border: 2px solid lightblue;
+  border: 2px solid yellow;
   padding: 10px;
   background: #f0f0f0;
 }
 
-.CommentsList {
-  border: 2px solid yellow;
+.CommentsHeaders {
+  font-family: "roboto", serif;
+  font-size: 30px;
 }
 
 .CommentCard {
@@ -91,13 +92,15 @@
   width: 92vw;
   height: 10vw;
   background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .DeleteButton {
   font-family: "Open Sans", sans-serif;
   float: right;
   font-size: 20px;
-  border: 2px solid lightblue;
+  border: 2px solid grey;
 }
 
 .VoteForm {

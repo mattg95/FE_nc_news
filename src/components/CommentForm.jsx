@@ -41,7 +41,7 @@ export default class CommentForm extends Component {
           />
         )}
 
-        <h3>Post comment</h3>
+        <h3 className="CommentsHeaders">Post comment</h3>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

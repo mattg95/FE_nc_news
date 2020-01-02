@@ -18,13 +18,13 @@
 
 ## UX
 
-- [ ] Basic styling added
+- [x] Basic styling added
 
   - you have a good starting point here, things are laid out cleanly and you should be able to layer styling on top without too many problems
 
   - just a few things to tick off when you start doing this: font, padding in your list cards, link styling, button styles, border / margin around your cards, choosing a colour scheme, use dark / light grey for text depending on background, where the delete button appears, textarea for comment submission
 
-- [ ] Responsive design
+- [x] Responsive design
 
   - fine atm though you may wish to consider looking at flex as a way of using more space when your code is wider
 
