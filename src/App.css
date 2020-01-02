@@ -1,3 +1,7 @@
+.App {
+  border: 2px solid darkblue;
+}
+
 .Header {
   font-family: "roboto";
   display: flex;

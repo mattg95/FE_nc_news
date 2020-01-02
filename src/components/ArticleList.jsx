@@ -18,21 +18,27 @@ class ArticleList extends Component {
   componentDidUpdate(prevProps) {
     const { order, sortBy, topic } = this.props;
     if (order !== prevProps.order || sortBy !== prevProps.sortBy) {
+      {
+        this.setState({ loading: true });
+      }
       api
         .sortArticles(sortBy, order)
-        .then(articles => this.setState({ articles }))
+        .then(articles => this.setState({ articles, loading: false }))
         .catch(err => ErrorHandler(err));
     }
     if (topic !== prevProps.topic) {
+      {
+        this.setState({ loading: true });
+      }
       if (!topic) {
         api
           .getAllArticles()
-          .then(articles => this.setState({ articles }))
+          .then(articles => this.setState({ articles, loading: false }))
           .catch(err => ErrorHandler(err));
       } else {
         api
           .getArticlesByTopic(topic)
-          .then(articles => this.setState({ articles }))
+          .then(articles => this.setState({ articles, loading: false }))
           .catch(err => ErrorHandler(err));
       }
     }
@@ -44,18 +50,25 @@ class ArticleList extends Component {
     });
   };
 
-  render() {
+  checkForArticles = () => {
     const { topic } = this.props;
     const { articles } = this.state;
+    return articles.some(article => article.topic === topic) ? (
+      this.createArticleList()
+    ) : (
+      <h1>No articles found</h1>
+    );
+  };
+
+  render() {
+    const { loading } = this.state;
+    const { topic } = this.props;
+
     return (
       <div className="ArticleList">
-        {this.state.loading && <h2>LOADING</h2>}
+        {loading && <h2>LOADING</h2>}
         {!topic && this.createArticleList()}
-        {articles.every(article => article.topic !== topic) ? (
-          <h2>No articles found</h2>
-        ) : (
-          this.createArticleList()
-        )}
+        {!loading && this.checkForArticles()}
       </div>
     );
   }
