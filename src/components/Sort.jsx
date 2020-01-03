@@ -16,26 +16,30 @@ export default class Sort extends Component {
     const { sortBy, order } = this.state;
     return (
       <div className="Sort">
-        <form className="Form">
+        <form>
           <label className="Form">
-            {" "}
             Sort By
             <select
-              className="Form"
+              className="Select"
               onChange={() => {
                 this.changeOrder(event, "sortBy");
               }}
             >
-              <option value="created_at">Date</option>
-              <option value="votes">Votes</option>
-              <option value="comment_count">Comment count</option>
+              <option className="Option" value="created_at">
+                Date
+              </option>
+              <option className="Option" value="votes">
+                Votes
+              </option>
+              <option className="Option" value="comment_count">
+                Comment count
+              </option>
             </select>
           </label>
-          <label>
-            {" "}
+          <label className="Form">
             Order
             <select
-              className="Form"
+              className="Select"
               onChange={() => {
                 this.changeOrder(event, "order");
               }}
