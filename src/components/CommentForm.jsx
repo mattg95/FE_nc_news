@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
-import CommentCard from "./CommentCard";
+import CommentDisplayer from "./CommentDisplayer";
 import ErrorHandler from "./ErrorHandler";
 
 export default class CommentForm extends Component {
   state = {
     comment: "",
-    displayedComment: "",
-    returnedData: {}
+    displayedComments: []
   };
 
   handleChange = () => {
@@ -18,29 +17,33 @@ export default class CommentForm extends Component {
     const { articleId, username } = this.props;
     const { comment } = this.state;
     event.preventDefault();
-    return api
-      .postComment(articleId, username, comment)
-      .then(res => {
-        this.setState({
-          displayedComment: this.state.comment,
-          comment: "",
-          returnedData: res.data.comment
-        });
-      })
-      .catch(err => ErrorHandler(err));
+    return (
+      api
+        .postComment(articleId, username, comment)
+        .catch(err => ErrorHandler(err)),
+      this.setState(prevState => ({
+        displayedComments: [...prevState.displayedComments, this.state.comment],
+        comment: ""
+      }))
+    );
+  };
+
+  renderComment = () => {
+    return this.state.displayedComments.map((comment, i) => {
+      return (
+        <CommentDisplayer
+          author={this.props.username}
+          comment={comment}
+          key={i}
+        />
+      );
+    });
   };
 
   render() {
     return (
-      <div className="CommentForm">
-        {this.state.displayedComment && (
-          <CommentCard
-            username={this.state.returnedData.author}
-            comment={this.state.returnedData}
-            key={this.state.comment_id}
-          />
-        )}
-
+      <div>
+        {this.state.displayedComments && this.renderComment()}
         <h3 className="CommentsHeaders">Post comment</h3>
         <form onSubmit={this.handleSubmit}>
           <input

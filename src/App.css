@@ -134,11 +134,13 @@
   font-family: "roboto", serif;
   font-size: 30px;
   padding: 5px;
+  margin: 10px;
 }
 
 .CommentCard {
   border: 2px solid rgba(59, 153, 252, 0.7);
   padding: 10px;
+  margin: 0px;
   background: #f0f0f0;
   border-radius: 5px;
 }
@@ -152,6 +154,7 @@
   height: 10vw;
   background-color: #f0f0f0;
   padding: 10px;
+  margin: 10px;
   font-size: 20px;
   border-radius: 5px;
   outline: black 2px;
