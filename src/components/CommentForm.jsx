@@ -13,6 +13,14 @@ export default class CommentForm extends Component {
     this.setState({ comment: event.target.value });
   };
 
+  deleteComment = commentToDelete => {
+    const sansComment = [];
+    this.state.displayedComments.forEach(comment => {
+      comment !== commentToDelete && sansComment.push(comment);
+    });
+    this.setState({ displayedComments: [...sansComment] });
+  };
+
   handleSubmit = event => {
     const { articleId, username } = this.props;
     const { comment } = this.state;
@@ -34,6 +42,7 @@ export default class CommentForm extends Component {
         <CommentDisplayer
           author={this.props.username}
           comment={comment}
+          deleteComment={this.deleteComment}
           key={i}
         />
       );

@@ -1,8 +1,15 @@
 import React from "react";
-const CommentDisplayer = ({ author, comment }) => {
+const CommentDisplayer = ({ author, comment, deleteComment }) => {
   return (
     <div className="CommentCard">
-      <button className="DeleteButton">Delete</button>
+      <button
+        className="DeleteButton"
+        onClick={() => {
+          deleteComment(comment);
+        }}
+      >
+        Delete
+      </button>
       <p>{comment}</p>
       <p>Author: {author}</p>
       <div className="VoteForm">
