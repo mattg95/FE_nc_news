@@ -14,8 +14,9 @@ export default class CommentForm extends Component {
   };
 
   deleteComment = commentToDelete => {
+    const { displayedComments } = this.state;
     const sansComment = [];
-    this.state.displayedComments.forEach(comment => {
+    displayedComments.forEach(comment => {
       comment !== commentToDelete && sansComment.push(comment);
     });
     this.setState({ displayedComments: [...sansComment] });
@@ -30,17 +31,19 @@ export default class CommentForm extends Component {
         .postComment(articleId, username, comment)
         .catch(err => ErrorHandler(err)),
       this.setState(prevState => ({
-        displayedComments: [...prevState.displayedComments, this.state.comment],
+        displayedComments: [...prevState.displayedComments, comment],
         comment: ""
       }))
     );
   };
 
   renderComment = () => {
-    return this.state.displayedComments.map((comment, i) => {
+    const { displayedComments } = this.state;
+    const { username } = this.props;
+    return displayedComments.map((comment, i) => {
       return (
         <CommentDisplayer
-          author={this.props.username}
+          author={username}
           comment={comment}
           deleteComment={this.deleteComment}
           key={i}
@@ -50,9 +53,10 @@ export default class CommentForm extends Component {
   };
 
   render() {
+    const { comment, displayedComments } = this.state;
     return (
       <div>
-        {this.state.displayedComments && this.renderComment()}
+        {displayedComments && this.renderComment()}
         <h3 className="CommentsHeaders">Post comment</h3>
         <form onSubmit={this.handleSubmit}>
           <input
@@ -60,7 +64,7 @@ export default class CommentForm extends Component {
             className="CommentInput"
             required={true}
             onChange={this.handleChange}
-            value={this.state.comment}
+            value={comment}
           ></input>
           <input type="submit" className="SubmitButton"></input>
         </form>
