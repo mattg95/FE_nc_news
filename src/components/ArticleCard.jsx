@@ -19,7 +19,13 @@ const ArticleCard = ({ article }) => {
       <p>Author: {author}</p>
       <p>created_at: {created_at}</p>
       <p>comment count: {comment_count}</p>
-      <VoteHandler id={article_id} thing={"articles"} votes={votes} />
+
+      <VoteHandler
+        className="VoteForm"
+        id={article_id}
+        thing={"articles"}
+        votes={votes}
+      />
     </div>
   );
 };
