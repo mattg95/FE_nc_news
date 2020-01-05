@@ -74,6 +74,7 @@
 
 .Sort {
   font-family: "roboto", serif;
+  margin: 5px;
 }
 
 .Form {
@@ -94,7 +95,7 @@
 
 .Select {
   font-size: 22px;
-  margin: 2px;
+  margin: 5px;
   padding: 2px;
   color: black;
   text-transform: uppercase;
