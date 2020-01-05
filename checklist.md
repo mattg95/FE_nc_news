@@ -6,13 +6,13 @@
 
 - [ ] has a link to the deployed version
 
-- [ ] provides general info about your app
+- [x] provides general info about your app
 
-- [ ] includes links to your back end repo
+- [] includes links to your back end repo
 
-- [ ] specifies the minimum version of Node required to run locally (check your Node version, `node --version` and use the major version that you are on)
+- [x] specifies the minimum version of Node required to run locally (check your Node version, `node --version` and use the major version that you are on)
 
-- [ ] has clear instructions on how to run your project locally (`git clone <repo-url>, cd ...`)
+- [x] has clear instructions on how to run your project locally (`git clone <repo-url>, cd ...`)
 
 ​
 
@@ -28,23 +28,23 @@
 
   - fine atm though you may wish to consider looking at flex as a way of using more space when your code is wider
 
-- [ ] Items aligned
+- [x] Items aligned
 
   - also ok atm but keep an eye on it - make sure things aren't right up against the border of the box they're in.
 
-- [ ] Content legible (not too wide, obstructed, etc)
+- [x] Content legible (not too wide, obstructed, etc)
 
   - fine at the moment
 
-- [ ] Refreshing doesn’t cause an issue on sub-pages
+- [] Refreshing doesn’t cause an issue on sub-pages
 
   - will need checking when deployed
 
-- [ ] No errors in the console
+- [x] No errors in the console
 
   - fine at the moment, check again before deploying
 
-- [ ] Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
+- [x] Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
 
   - voting is fine, but nothing obvious when posting comment. Deleting is good, but you don't need the alert!
 

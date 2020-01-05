@@ -9,10 +9,18 @@ class ArticleList extends Component {
     articles: []
   };
   componentDidMount() {
-    return api
-      .getAllArticles()
-      .then(articles => this.setState({ articles: articles, loading: false }))
-      .catch(err => ErrorHandler(err));
+    const { topic } = this.props;
+    topic
+      ? api
+          .getArticlesByTopic(topic)
+          .then(articles => this.setState({ articles, loading: false }))
+          .catch(err => ErrorHandler(err))
+      : api
+          .getAllArticles()
+          .then(articles =>
+            this.setState({ articles: articles, loading: false })
+          )
+          .catch(err => ErrorHandler(err));
   }
 
   componentDidUpdate(prevProps) {
