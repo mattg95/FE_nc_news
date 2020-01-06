@@ -3,9 +3,6 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import "./App.css";
 import { Router } from "@reach/router";
-import SingleArticle from "./components/SingleArticle";
-import Sort from "./components/Sort";
-import ErrorHandler from "./components/ErrorHandler";
 
 class App extends Component {
   state = {
@@ -17,12 +14,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Nav username={username} />
-        <Router primary={false}>
-          <SingleArticle username={username} path="/articles/:articleId" />
-          <Sort path="/articles/topic/:topic" />
-          <Sort path="/*" />
-          <ErrorHandler default />
+        <Router>
+          <Nav username={username} path="/articles/topic/:topic" />
+          <Nav username={username} path="/*" />
         </Router>
       </div>
     );
