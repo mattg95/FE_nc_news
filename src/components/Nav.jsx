@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import "bootstrap-4-grid";
+
 import * as api from "../utils/api";
 import ErrorHandler from "./ErrorHandler";
 import { Router } from "@reach/router";
@@ -11,13 +13,13 @@ class Nav extends Component {
     topics: [],
     loading: true,
     topic: "",
-    error: false
+    error: false,
   };
   componentDidMount() {
     api
       .getTopics()
-      .then(topics => this.setState({ topics, loading: false }))
-      .catch(err => ErrorHandler(err));
+      .then((topics) => this.setState({ topics, loading: false }))
+      .catch((err) => ErrorHandler(err));
   }
 
   componentDidUpdate() {
@@ -25,7 +27,7 @@ class Nav extends Component {
     const { topic } = this.props;
     !error &&
       topic &&
-      topics.every(topicObj => {
+      topics.every((topicObj) => {
         return topicObj.slug !== topic;
       }) &&
       (this.setState({ error: true }), this.setState({ error: true }));
@@ -37,7 +39,7 @@ class Nav extends Component {
       const { slug } = topic;
       return (
         <Link to={`/articles/topic/${slug}`} key={i}>
-          <button className="TopicsButton" value={slug} type="button">
+          <button className="TopicsButton " value={slug} type="button">
             {slug.toUpperCase()}
           </button>
         </Link>
@@ -51,22 +53,36 @@ class Nav extends Component {
         {this.state.error ? (
           <h1>404 Not Found</h1>
         ) : (
-          <div className="TopicsButtons">
-            {this.state.loading && <h3>LOADING</h3>}
-            <Link to="/">
-              <button className="TopicsButton">ALL</button>
-            </Link>
-            {this.mapTopics()}
-            <h3 className="UserDisplay">User: {this.props.username}</h3>
-            <Router>
-              <SingleArticle
-                username={this.props.username}
-                path="/articles/:articleId"
-              />
-              <Sort path="/articles/topic/:topic" />
-              <Sort path="/*" />
-              <ErrorHandler default />
-            </Router>
+          <div>
+            <div className="TopicsButtonsContainer">
+              <div className="container">
+                <div className="row">
+                  <div className="col-12">
+                    {this.state.loading && <h3>LOADING</h3>}
+                    <Link to="/">
+                      <button className="TopicsButton">ALL</button>
+                    </Link>
+                    {this.mapTopics()}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="row">
+                <div className="col-12">
+                  <h3 className="UserDisplay">User: {this.props.username}</h3>
+                  <Router>
+                    <SingleArticle
+                      username={this.props.username}
+                      path="/articles/:articleId"
+                    />
+                    <Sort path="/articles/topic/:topic" />
+                    <Sort path="/*" />
+                    <ErrorHandler default />
+                  </Router>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>

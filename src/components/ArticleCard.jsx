@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
+import "bootstrap-4-grid";
+
 import VoteHandler from "./VoteHandler";
 
 const ArticleCard = ({ article }) => {
@@ -9,7 +11,7 @@ const ArticleCard = ({ article }) => {
     author,
     created_at,
     comment_count,
-    votes
+    votes,
   } = article;
   return (
     <div className="ArticleCard">

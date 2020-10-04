@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
+import "bootstrap-4-grid";
 
 export default class Sort extends Component {
   state = {
     sortBy: "",
-    order: ""
+    order: "",
   };
 
   changeOrder = (event, subState) => {
@@ -15,8 +16,8 @@ export default class Sort extends Component {
     const { topic } = this.props;
     const { sortBy, order } = this.state;
     return (
-      <div className="Sort">
-        <form>
+      <div className="Sort row">
+        <form className="col-12">
           <label className="Form">
             Sort By
             <select
@@ -52,11 +53,13 @@ export default class Sort extends Component {
             </select>
           </label>
         </form>
-        <ArticleList
-          topic={topic}
-          sortBy={sortBy || "created_at"}
-          order={order || "desc"}
-        />
+        <div className="col-12">
+          <ArticleList
+            topic={topic}
+            sortBy={sortBy || "created_at"}
+            order={order || "desc"}
+          />
+        </div>
       </div>
     );
   }
