@@ -1,6 +1,6 @@
 # NC News
 
-NC News is a reddit-style news application. It allows users to view news articles on a variety of topics including football, coding and cooking. Users can vote on articles, and post comments. The can also vote on other user's comments, and delete their own comments.
+NC News is a reddit-style news application. It allows users to view news articles on a variety of topics including football, coding and cooking. Users can vote on articles, and post comments. The can also vote on other user's comments, and delete their own comments. To see the hosted app, please visit: https://nc-news-react-app.herokuapp.com/
 
 NC News was built using a ReactJs front-end and a NodeJs and PSQL back-end. A link to the back-end repo of the site can be found here: https://github.com/mattg95/be-nc-news. A hosted version of the API can be found at https://nc-news-matt-g.herokuapp.com/api.
 
