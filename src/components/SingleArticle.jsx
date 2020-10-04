@@ -9,8 +9,8 @@ export default class SingleArticle extends Component {
     const { articleId } = this.props;
     return api
       .getArticleById(articleId)
-      .then(article => this.setState({ article, loading: false }))
-      .catch(err => this.setState({ err: err.response.data.msg }));
+      .then((article) => this.setState({ article, loading: false }))
+      .catch((err) => this.setState({ err: err.response.data.msg }));
   }
   render() {
     const { title, body, votes } = this.state.article;

@@ -18,18 +18,17 @@
 }
 
 .UserDisplay {
-  margin: 10px 0px;
+  margin: 20px 0px 10px;
   color: black;
 }
 .TopicsButtonsContainer {
   background-color: #f0f0f0;
-  width: 100vw;
+  padding-bottom: 10px;
 }
 .TopicsButton {
   background-color: #f0f0f0;
   margin-top: 5px;
   padding-top: 5px;
-  width: 100vw;
   font-family: "roboto", sans-serif;
   font-size: 20px;
   line-height: 32px;
@@ -38,6 +37,7 @@
   text-decoration: none;
   display: inline-block;
   width: 25%;
+  font-weight: 600;
   border: none;
 }
 
@@ -47,33 +47,46 @@
   border-top: 8px solid #41729f;
   outline: none;
 }
-
 .ArticleCard {
-  padding: 15px;
+  padding: 25px;
   background: #f0f0f0;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  color: #222;
+  color: #000;
   margin-bottom: 20px;
 }
-
-.ArticleTitle {
-  font-family: "roboto", serif;
-  font-size: 30px;
-  text-decoration: none;
-  color: black;
+@media screen and (min-width: 768px) {
+  .ArticleCard,
+  .SingleArticle {
+    padding: 20px 40px;
+  }
 }
 
 .Sort {
   font-family: "roboto", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.SortForms {
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #000;
+  font-family: "roboto", sans-serif;
+
+  font-size: 32px;
+  line-height: 42px;
 }
 
 .Form {
   font-size: 22px;
   margin: 5px;
   color: black;
-  text-transform: uppercase;
   text-decoration: none;
   border-radius: 5px;
   display: inline-block;
@@ -115,15 +128,12 @@
   background-color: silver;
   color: rgba(59, 153, 252, 0.7);
 }
+
 .SingleArticle {
-  padding: 10px;
-  margin: 5px;
   border-radius: 5px;
   background: #f0f0f0;
 }
-.CommentsList {
-  padding: 5px;
-}
+
 .CommentsHeaders {
   font-family: "roboto", serif;
   font-size: 30px;
@@ -132,10 +142,10 @@
 }
 
 .CommentCard {
-  padding: 10px;
+  padding: 15px;
+  background-color: #41729f;
+  color: white;
   margin: 0px;
-  background: #f0f0f0;
-  border-radius: 5px;
 }
 
 .CommentForm {
@@ -143,7 +153,6 @@
 }
 
 .CommentInput {
-  width: 92vw;
   height: 10vw;
   background-color: #f0f0f0;
   padding: 10px;
@@ -154,7 +163,6 @@
 }
 
 .CommentInput {
-  width: 92vw;
   height: 10vw;
   background-color: #f0f0f0;
   padding: 10px;
@@ -180,18 +188,29 @@
   justify-content: flex-end;
   border-radius: 5px;
   background: white;
-  width: 320px;
+  max-width: 340px;
+  height: 60px;
   margin-left: auto;
 }
 
-.VoteButton {
+.UpVoteButton {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
+  background-color: #41729f;
+  border: 3px solid #41729f;
   border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  margin: 5px;
 }
-
-.VoteButton:focus {
-  outline: 1px solid black;
+.DownVoteButton {
+  font-size: 20px;
+  border: 3px solid #41729f;
+  border-radius: 5px;
+  background-color: white;
+  color: #41729f;
+  font-weight: 600;
+  margin: 5px;
 }
 
 .SubmitButton {
@@ -204,6 +223,9 @@
 .DisplayVotes {
   margin: 10px;
   font-size: 20px;
+  line-height: 40px;
+  white-space: nowrap;
+  color: #000;
 }
 
 .Submitbutton:focus {

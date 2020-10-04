@@ -16,10 +16,10 @@ export default class Sort extends Component {
     const { topic } = this.props;
     const { sortBy, order } = this.state;
     return (
-      <div className="Sort row">
-        <form className="col-12">
+      <div className="Sort">
+        <form className="SortForms">
           <label className="Form">
-            Sort By
+            Sort by:
             <select
               className="Select"
               onChange={() => {
@@ -38,7 +38,7 @@ export default class Sort extends Component {
             </select>
           </label>
           <label className="Form">
-            Order
+            Order:
             <select
               className="Select"
               onChange={() => {
@@ -53,7 +53,7 @@ export default class Sort extends Component {
             </select>
           </label>
         </form>
-        <div className="col-12">
+        <div>
           <ArticleList
             topic={topic}
             sortBy={sortBy || "created_at"}

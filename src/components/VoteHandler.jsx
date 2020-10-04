@@ -4,9 +4,9 @@ import * as api from "../utils/api";
 export default class VoteHandler extends Component {
   state = {
     passedVote: 0,
-    loading: true
+    loading: true,
   };
-  handleClick = event => {
+  handleClick = (event) => {
     const { thing, id } = this.props;
     const { value } = event.target;
     const { passedVote } = this.state;
@@ -29,7 +29,7 @@ export default class VoteHandler extends Component {
           onClick={this.handleClick}
           value={1}
           disabled={userComment || passedVote > 0}
-          className="VoteButton"
+          className="UpVoteButton"
         >
           Upvote
         </button>
@@ -37,7 +37,7 @@ export default class VoteHandler extends Component {
           onClick={this.handleClick}
           value={-1}
           disabled={userComment || passedVote < 0}
-          className="VoteButton"
+          className="DownVoteButton"
         >
           Downvote
         </button>

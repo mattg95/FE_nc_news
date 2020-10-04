@@ -13,14 +13,16 @@ const ArticleCard = ({ article }) => {
     comment_count,
     votes,
   } = article;
+  const myDate = new Date(created_at).toString();
+  const formattedDate = myDate.slice(4, 15);
   return (
     <div className="ArticleCard">
-      <Link to={`/articles/${article_id}`} className="ArticleTitle">
-        <h3>{title}</h3>
+      <Link to={`/articles/${article_id}`}>
+        <h3 className="ArticleTitle">{title}</h3>
+        <p>Author: {author}</p>
+        <p>Created at: {formattedDate}</p>
+        <p>comment count: {comment_count}</p>
       </Link>
-      <p>Author: {author}</p>
-      <p>created_at: {created_at}</p>
-      <p>comment count: {comment_count}</p>
 
       <VoteHandler
         className="VoteForm"
