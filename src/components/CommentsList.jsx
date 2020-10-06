@@ -8,20 +8,20 @@ export default class CommentsList extends Component {
   state = {
     loading: true,
     comments: [],
-    err: ""
+    err: "",
   };
   componentDidMount() {
     return api
       .getCommentsForArticle(this.props.articleId)
-      .then(comments => this.setState({ comments, loading: false }))
-      .catch(err => {
+      .then((comments) => this.setState({ comments, loading: false }))
+      .catch((err) => {
         this.setState({ err: "err" });
       });
   }
   createCommentsList = () => {
     const { comments } = this.state;
     const { username } = this.props;
-    return comments.map(comment => {
+    return comments.map((comment) => {
       return (
         <CommentCard
           username={username}

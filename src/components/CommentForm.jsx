@@ -6,33 +6,33 @@ import ErrorHandler from "./ErrorHandler";
 export default class CommentForm extends Component {
   state = {
     comment: "",
-    displayedComments: []
+    displayedComments: [],
   };
 
   handleChange = () => {
     this.setState({ comment: event.target.value });
   };
 
-  deleteComment = commentToDelete => {
+  deleteComment = (commentToDelete) => {
     const { displayedComments } = this.state;
     const sansComment = [];
-    displayedComments.forEach(comment => {
+    displayedComments.forEach((comment) => {
       comment !== commentToDelete && sansComment.push(comment);
     });
     this.setState({ displayedComments: [...sansComment] });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const { articleId, username } = this.props;
     const { comment } = this.state;
     event.preventDefault();
     return (
       api
         .postComment(articleId, username, comment)
-        .catch(err => ErrorHandler(err)),
-      this.setState(prevState => ({
+        .catch((err) => ErrorHandler(err)),
+      this.setState((prevState) => ({
         displayedComments: [...prevState.displayedComments, comment],
-        comment: ""
+        comment: "",
       }))
     );
   };
@@ -57,8 +57,8 @@ export default class CommentForm extends Component {
     return (
       <div>
         {displayedComments && this.renderComment()}
-        <h3 className="CommentsHeaders">Post comment</h3>
-        <form onSubmit={this.handleSubmit}>
+        <h3>Post comment</h3>
+        <form className="commentInputForm" onSubmit={this.handleSubmit}>
           <input
             type="text"
             className="CommentInput"

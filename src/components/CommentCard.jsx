@@ -4,7 +4,7 @@ import VoteHandler from "./VoteHandler";
 
 export default class CommentCard extends Component {
   state = {
-    display: true
+    display: true,
   };
   hideComment = () => {
     return this.setState({ display: false });
@@ -16,20 +16,22 @@ export default class CommentCard extends Component {
       <div>
         {this.state.display && (
           <div className="CommentCard">
-            {this.props.username === author && (
-              <DeleteComment
-                comment_id={comment_id}
-                hideComment={this.hideComment}
+            <div className="InsetBorder">
+              {this.props.username === author && (
+                <DeleteComment
+                  comment_id={comment_id}
+                  hideComment={this.hideComment}
+                />
+              )}
+              <p>{body}</p>
+              <p>Author: {author}</p>
+              <VoteHandler
+                id={comment_id}
+                thing={"comments"}
+                votes={votes}
+                userComment={this.props.username === author}
               />
-            )}
-            <p>{body}</p>
-            <p>Author: {author}</p>
-            <VoteHandler
-              id={comment_id}
-              thing={"comments"}
-              votes={votes}
-              userComment={this.props.username === author}
-            />
+            </div>
           </div>
         )}
       </div>
