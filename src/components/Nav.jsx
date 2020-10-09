@@ -57,7 +57,7 @@ class Nav extends Component {
             <div className="TopicsButtonsContainer">
               <div className="container">
                 <div className="row">
-                  <div className="col-12">
+                  <div className="col-12 AllTopicsButtons">
                     {this.state.loading && <h3>LOADING</h3>}
                     <Link to="/">
                       <button className="TopicsButton">ALL</button>

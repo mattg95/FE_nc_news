@@ -19,17 +19,21 @@ const ArticleCard = ({ article }) => {
     <div className="ArticleCard">
       <Link to={`/articles/${article_id}`}>
         <h3 className="ArticleTitle">{title}</h3>
-        <p>Author: {author}</p>
-        <p>Created at: {formattedDate}</p>
-        <p>comment count: {comment_count}</p>
       </Link>
+      <div classNAme="ArticleCardInner">
+        <Link to={`/articles/${article_id}`}>
+          <p>Author: {author}</p>
+          <p>Created at: {formattedDate}</p>
+          <p>comment count: {comment_count}</p>
+        </Link>
 
-      <VoteHandler
-        className="VoteForm"
-        id={article_id}
-        thing={"articles"}
-        votes={votes}
-      />
+        <VoteHandler
+          className="VoteForm"
+          id={article_id}
+          thing={"articles"}
+          votes={votes}
+        />
+      </div>
     </div>
   );
 };

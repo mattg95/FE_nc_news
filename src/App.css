@@ -25,8 +25,25 @@ h4 {
   color: black;
 }
 .TopicsButtonsContainer {
+  display: flex;
   background-color: #f0f0f0;
   padding-bottom: 10px;
+}
+
+.AllTopicsButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.AllTopicsButtons a {
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 576px) {
+  .AllTopicsButtons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 .TopicsButton {
   background-color: #f0f0f0;
@@ -39,26 +56,45 @@ h4 {
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  width: 25%;
   font-weight: 600;
   border: none;
   cursor: pointer;
+  width: 100%;
+}
+@media screen and (min-width: 576px) {
+  .AllTopicsButtons a {
+    width: auto;
+  }
+  .TopicsButton {
+    width: auto;
+  }
+}
+.TopicsButton:focus {
+  margin-left: -6px;
+  border-top: none;
+  border-left: 6px solid #41729f;
+  outline: none;
+  text-decoration: none;
+}
+@media screen and (min-width: 576px) {
+  .TopicsButton:focus {
+    margin-top: -5px;
+    border-top: 6px solid #41729f;
+    border-left: none;
+    margin-left: 0px;
+  }
 }
 
-.TopicsButton:focus {
-  margin-top: 0px;
-  text-decoration: none;
-  border-top: 8px solid #41729f;
-  outline: none;
-}
 .ArticleCard {
   padding: 25px;
   background: #f0f0f0;
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
   color: #000;
   margin-bottom: 20px;
+}
+.ArticleCardInner {
+  display: flex;
+  align-items: flex-end;
 }
 @media screen and (min-width: 768px) {
   .ArticleCard,
@@ -137,6 +173,7 @@ h3 {
 .SingleArticle {
   border-radius: 5px;
   background: #f0f0f0;
+  padding: 20px;
 }
 
 .CommentsHeaders {
@@ -190,38 +227,55 @@ h3 {
 .VoteForm {
   font-family: "Open Sans", sans-serif;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: column;
   border-radius: 10px;
   background: white;
-  max-width: 340px;
-  height: 60px;
   margin-left: auto;
   border: 5px solid #c3e0e5;
+  margin-top: 35px;
 }
-
+@media screen and (min-width: 576px) {
+  .VoteForm {
+    flex-direction: row;
+    justify-content: flex-end;
+    max-width: 340px;
+  }
+}
 .UpVoteButton {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   background-color: #41729f;
   border: 3px solid #41729f;
   border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
   color: white;
   font-weight: 600;
+  height: 40px;
   cursor: pointer;
 }
 .DownVoteButton {
   font-size: 20px;
   border: 3px solid #41729f;
-  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: white;
   color: #41729f;
   font-weight: 600;
+  height: 40px;
   cursor: pointer;
 }
-
+@media screen and (min-width: 576px) {
+  .UpVoteButton {
+    height: 50px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+  }
+  .DownVoteButton {
+    height: 50px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+  }
+}
 .DownVoteButton:disabled {
   opacity: 50%;
 }
