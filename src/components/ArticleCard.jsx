@@ -20,7 +20,7 @@ const ArticleCard = ({ article }) => {
       <Link to={`/articles/${article_id}`}>
         <h3 className="ArticleTitle">{title}</h3>
       </Link>
-      <div classNAme="ArticleCardInner">
+      <div className="ArticleCardInner">
         <Link to={`/articles/${article_id}`}>
           <p>Author: {author}</p>
           <p>Created at: {formattedDate}</p>
