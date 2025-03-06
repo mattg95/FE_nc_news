@@ -6,30 +6,30 @@ import VoteHandler from "./VoteHandler";
 
 const ArticleCard = ({ article }) => {
   const {
-    article_id,
+    id,
     title,
     author,
-    created_at,
-    comment_count,
+    createdAt,
+    commentCount,
     votes,
   } = article;
-  const myDate = new Date(created_at).toString();
+  const myDate = new Date(createdAt).toString();
   const formattedDate = myDate.slice(4, 15);
   return (
     <div className="ArticleCard">
-      <Link to={`/articles/${article_id}`}>
+      <Link to={`/articles/${id}`}>
         <h3 className="ArticleTitle">{title}</h3>
       </Link>
       <div className="ArticleCardInner">
-        <Link to={`/articles/${article_id}`}>
+        <Link to={`/articles/${id}`}>
           <p>Author: {author}</p>
           <p>Created at: {formattedDate}</p>
-          <p>comment count: {comment_count}</p>
+          <p>comment count: {commentCount}</p>
         </Link>
 
         <VoteHandler
           className="VoteForm"
-          id={article_id}
+          id={id}
           thing={"articles"}
           votes={votes}
         />

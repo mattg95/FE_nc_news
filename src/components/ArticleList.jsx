@@ -21,6 +21,7 @@ class ArticleList extends Component {
             this.setState({ articles: articles, loading: false })
           )
           .catch(err => ErrorHandler(err));
+
   }
 
   componentDidUpdate(prevProps) {
@@ -46,6 +47,7 @@ class ArticleList extends Component {
           .catch(err => ErrorHandler(err));
       }
     }
+    console.log(this.state.articles)
   }
 
   createArticleList = () => {
@@ -57,9 +59,8 @@ class ArticleList extends Component {
   checkForArticles = () => {
     const { topic } = this.props;
     const { articles } = this.state;
-    return articles.some(article => article.topic === topic) ? (
-      this.createArticleList()
-    ) : (
+    console.log(articles, topic)
+    return articles ? this.createArticleList(): (
       <div className="UserMessage">
         <h1>No articles found</h1>
       </div>

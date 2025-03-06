@@ -26,13 +26,13 @@ export default class Sort extends Component {
                 this.changeOrder(event, "sortBy");
               }}
             >
-              <option className="Option" value="created_at">
+              <option className="Option" value="createdAt">
                 Date
               </option>
               <option className="Option" value="votes">
                 Votes
               </option>
-              <option className="Option" value="comment_count">
+              <option className="Option" value="commentCount">
                 Comment count
               </option>
             </select>
@@ -56,7 +56,7 @@ export default class Sort extends Component {
         <div>
           <ArticleList
             topic={topic}
-            sortBy={sortBy || "created_at"}
+            sortBy={sortBy || "createdAt"}
             order={order || "desc"}
           />
         </div>

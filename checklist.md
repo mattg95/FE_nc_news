@@ -76,7 +76,7 @@
 
   - great
 
-- [x] Can sort articles by date created / comment_count / votes
+- [x] Can sort articles by date created / commentCount / votes
 
   - also good, well done!
 
