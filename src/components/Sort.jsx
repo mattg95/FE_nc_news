@@ -4,17 +4,43 @@ import "bootstrap-4-grid";
 
 export default class Sort extends Component {
   state = {
-    sortBy: "",
-    order: "",
+    sortBy: "Date",
+    order: "desc",
+    descString: "Newest",
+    ascString: "Oldest",
   };
 
-  changeOrder = (event, subState) => {
-    this.setState({ [subState]: event.target.value });
+  changeOrder = (event) => {
+    this.setState({ order: event.target.value });
   };
 
-  render() {
+  changeSort = (event) => {
+    console.log(event.target.value)
+     switch (event.target.value) {
+      case 'commentCount':
+        this.setState({ascString: "Most commented"})
+        this.setState({descString: "Least commented"})
+        break;
+      case "votes":
+        this.setState({ascString: "Most votes"})
+        this.setState({descString: "Least votes"})
+        break;
+    
+      default:
+        this.setState({ascString: "Newest"})
+        this.setState({descString: "Oldest"})
+        break;
+    }
+    this.setState({ sortBy: event.target.value });
+  };
+
+
+  render() { 
+    
     const { topic } = this.props;
-    const { sortBy, order } = this.state;
+    const { sortBy, order, ascString, descString } = this.state;
+
+
     return (
       <div className="Sort">
         <form className="SortForms">
@@ -23,7 +49,7 @@ export default class Sort extends Component {
             <select
               className="Select"
               onChange={() => {
-                this.changeOrder(event, "sortBy");
+                this.changeSort(event, "sortBy");
               }}
             >
               <option className="Option" value="createdAt">
@@ -48,8 +74,8 @@ export default class Sort extends Component {
               <option value="" disabled defaultValue hidden>
                 Order
               </option>
-              <option value="desc">asc</option>
-              <option value="asc">desc</option>
+              <option value="desc">{ascString}</option>
+              <option value="asc">{descString}</option>
             </select>
           </label>
         </form>

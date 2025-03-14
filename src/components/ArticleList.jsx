@@ -47,7 +47,6 @@ class ArticleList extends Component {
           .catch(err => ErrorHandler(err));
       }
     }
-    console.log(this.state.articles)
   }
 
   createArticleList = () => {
@@ -59,7 +58,6 @@ class ArticleList extends Component {
   checkForArticles = () => {
     const { topic } = this.props;
     const { articles } = this.state;
-    console.log(articles, topic)
     return articles ? this.createArticleList(): (
       <div className="UserMessage">
         <h1>No articles found</h1>
