@@ -55,17 +55,13 @@ class Nav extends Component {
         ) : (
           <div>
             <div className="TopicsButtonsContainer">
-              <div className="container">
-                <div className="row">
-                  <div className="col-12 AllTopicsButtons">
+                  <div className="AllTopicsButtons">
                     {this.state.loading && <h3>LOADING</h3>}
                     <Link to="/">
                       <button className="TopicsButton">ALL</button>
                     </Link>
                     {this.mapTopics()}
                   </div>
-                </div>
-              </div>
             </div>
             <div className="container">
               <div className="row">
