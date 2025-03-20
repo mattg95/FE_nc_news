@@ -20,7 +20,7 @@ export default class CommentCard extends Component {
               {this.props.userId === authorId && <DeleteComment id={id} hideComment={this.hideComment} />}
               <p>{body}</p>
               <p>Author: {author}</p>
-              <VoteHandler id={id} thing={'comments'} votes={votes} userComment={this.props.username === author} />
+              <VoteHandler id={id} thing={'comments'} votes={votes} userComment={this.props.userId === authorId} />
             </div>
           </div>
         )}
