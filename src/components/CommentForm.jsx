@@ -22,19 +22,18 @@ export default class CommentForm extends Component {
     this.setState({ displayedComments: [...sansComment] });
   };
 
-  handleSubmit = (event) => {
-    const { articleId, username } = this.props;
+  handleSubmit = async (event) => {
+    const { articleId, userId } = this.props;
     const { comment } = this.state;
     event.preventDefault();
-    return (
-      api
-        .postComment(articleId, username, comment)
-        .catch((err) => ErrorHandler(err)),
+    const res = await api
+        .postComment(articleId, userId, comment)
+        .catch((err) => ErrorHandler(err));
+      
       this.setState((prevState) => ({
-        displayedComments: [...prevState.displayedComments, comment],
+        displayedComments: [...prevState.displayedComments, res.data.body],
         comment: "",
       }))
-    );
   };
 
   renderComment = () => {

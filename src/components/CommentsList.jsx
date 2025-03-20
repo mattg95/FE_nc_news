@@ -26,21 +26,21 @@ export default class CommentsList extends Component {
         <CommentCard
           username={username}
           comment={comment}
-          key={comment.comment_id}
+          key={comment.id}
         />
       );
     });
   };
 
   render() {
-    const { username, articleId } = this.props;
+    const { userId, articleId } = this.props;
     if (this.state.loading) return <h3>LOADING</h3>;
     if (this.state.err) return <ErrorHandler err={this.state.err} />;
     return (
       <div className="CommentsList">
         <h4 className="CommentsHeaders">Comments</h4>
         {this.createCommentsList()}
-        <CommentForm username={username} articleId={articleId} />
+        <CommentForm  userId={userId} articleId={articleId} />
       </div>
     );
   }

@@ -2,10 +2,10 @@ import React from "react";
 import Nav from "../components/Nav";
 import Sort from "../components/Sort";
 
-const Main = ({ username }) => {
+const Main = ({ username, userId }) => {
   return (
     <div>
-      <Nav username={username} />
+      <Nav username={username} userId={userId} />
       <Sort />
     </div>
   );

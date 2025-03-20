@@ -14,7 +14,7 @@ export default class SingleArticle extends Component {
   }
   render() {
     const { title, body, votes } = this.state.article;
-    const { username, articleId } = this.props;
+    const { userId, articleId } = this.props;
     if (this.state.err) return <h2>{this.state.err}</h2>;
     else if (this.state.loading) return <h2>LOADING</h2>;
     return (
@@ -24,7 +24,7 @@ export default class SingleArticle extends Component {
           <p>{body}</p>
           <VoteHandler id={+articleId} thing={"articles"} votes={votes} />
         </div>
-        <CommentsList username={username} articleId={articleId} />
+        <CommentsList userId={userId} articleId={+articleId} />
       </div>
     );
   }

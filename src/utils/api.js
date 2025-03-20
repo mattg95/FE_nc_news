@@ -24,10 +24,11 @@ exports.getCommentsForArticle = (articleId) => {
   return axios.get(baseURL + `/comments?article_id=${articleId}&sort_by=votes&order=desc`).then(({ data }) => data);
 };
 
-exports.postComment = (articleId, username, comment) => {
-  return axios.post(baseURL + `/articles/${articleId}/comments`, {
-    username: username,
+exports.postComment = (articleId, userId, comment) => {
+  return axios.post(baseURL + `/comments`, {
+    author: userId,
     body: comment,
+    article_id: articleId,
   });
 };
 

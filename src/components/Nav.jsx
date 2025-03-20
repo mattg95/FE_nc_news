@@ -69,6 +69,7 @@ class Nav extends Component {
                   <h3 className="UserDisplay">User: {this.props.username}</h3>
                   <Router>
                     <SingleArticle
+                      userId={this.props.userId}
                       username={this.props.username}
                       path="/articles/:articleId"
                     />
