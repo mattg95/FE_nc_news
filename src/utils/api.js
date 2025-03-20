@@ -36,7 +36,7 @@ exports.deleteComment = (commentId) => {
 };
 
 exports.voteHandler = (thing, id, vote) => {
-  return axios.patch(baseURL + `/${thing}/${id}`, {
+  return axios.patch(baseURL + `/${thing}/${id}/votes`, {
     inc_votes: vote,
   });
 };

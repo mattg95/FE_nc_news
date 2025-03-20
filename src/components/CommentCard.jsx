@@ -10,7 +10,7 @@ export default class CommentCard extends Component {
     return this.setState({ display: false });
   };
   render() {
-    const { author, comment_id, body, votes } = this.props.comment;
+    const { author, id, body, votes } = this.props.comment;
 
     return (
       <div>
@@ -26,7 +26,7 @@ export default class CommentCard extends Component {
               <p>{body}</p>
               <p>Author: {author}</p>
               <VoteHandler
-                id={comment_id}
+                id={id}
                 thing={"comments"}
                 votes={votes}
                 userComment={this.props.username === author}
