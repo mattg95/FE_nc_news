@@ -21,7 +21,7 @@ exports.getArticleById = (articleId) => {
   return axios.get(baseURL + `/articles/${articleId}`).then(({ data }) => data);
 };
 exports.getCommentsForArticle = (articleId) => {
-  return axios.get(baseURL + `/articles/${articleId}/comments?sort_by=votes&order=desc`).then(({ data }) => data);
+  return axios.get(baseURL + `/comments?article_id=${articleId}&sort_by=votes&order=desc`).then(({ data }) => data);
 };
 
 exports.postComment = (articleId, username, comment) => {
