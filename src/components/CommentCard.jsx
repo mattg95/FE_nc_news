@@ -10,15 +10,14 @@ export default class CommentCard extends Component {
     return this.setState({ display: false });
   };
   render() {
-    const { author, id, body, votes } = this.props.comment;
-    console.log(this.props.comment);
+    const { author, authorId, id, body, votes } = this.props.comment;
 
     return (
       <div>
         {this.state.display && (
           <div className='CommentCard'>
             <div className='InsetBorder'>
-              {this.props.username === author && <DeleteComment id={id} hideComment={this.hideComment} />}
+              {this.props.userId === authorId && <DeleteComment id={id} hideComment={this.hideComment} />}
               <p>{body}</p>
               <p>Author: {author}</p>
               <VoteHandler id={id} thing={'comments'} votes={votes} userComment={this.props.username === author} />

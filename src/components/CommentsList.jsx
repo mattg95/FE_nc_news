@@ -31,9 +31,10 @@ export default class CommentsList extends Component {
   };
   createCommentsList = () => {
     const { comments } = this.state;
-    const { username } = this.props;
+    const { userId } = this.props;
+
     return comments.map((comment) => {
-      return <CommentCard username={username} comment={comment} key={comment.id} />;
+      return <CommentCard userId={userId} comment={comment} key={comment.id} />;
     });
   };
 
