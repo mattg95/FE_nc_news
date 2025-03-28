@@ -19,11 +19,11 @@ const ArticleCard = ({ article }) => {
             <p>comment count: {commentCount}</p>
             <p>Topics:</p>
             <div className='ArticleCardTopicsSection'>
-              {topics.map((topic) => {
+              {topics.map(({ slug, id }) => {
                 return (
-                  <Link to={`/articles/topic/${topic}`}>
+                  <Link to={`/articles/topic/${id}`} key={id}>
                     <div className='ArticleCardTopic'>
-                      <p className='DisplayVotes'>{topic}</p>
+                      <p className='DisplayVotes'>{slug}</p>
                     </div>
                   </Link>
                 );
