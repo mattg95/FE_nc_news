@@ -10,6 +10,7 @@ exports.getAllArticles = () => {
 };
 
 exports.getArticlesByTopic = (topic = '', sortBy = '', order = '') => {
+  console.log(sortBy);
   return axios.get(baseURL + `/articles?topic=${topic}&sort_by=${sortBy}&order=${order}`).then(({ data }) => data);
 };
 
