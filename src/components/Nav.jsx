@@ -26,7 +26,6 @@ class Nav extends Component {
     const { error, topics } = this.state;
     const { topic } = this.props;
 
-    console.log('topic', topic, topics, error);
     !error &&
       topic &&
       topics.every(({ id }) => {
@@ -37,11 +36,13 @@ class Nav extends Component {
 
   mapTopics = () => {
     const { topics } = this.state;
-    return topics.map((topic, i) => {
-      const { slug, id } = topic;
+    const { topic } = this.props; // `topic` is the current topic id from the route
+
+    return topics.map(({ slug, id }) => {
+      const isActive = topic === String(id); // Check if the current route topic matches the button's id
       return (
-        <Link to={`/articles/topic/${id}`} key={i}>
-          <button className='TopicsButton ' value={slug} type='button'>
+        <Link to={`/articles/topic/${id}`} key={id}>
+          <button className={`TopicsButton TopicsButton${isActive ? 'Active' : ''}`} value={slug} type='button'>
             {slug.toUpperCase()}
           </button>
         </Link>

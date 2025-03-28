@@ -76,7 +76,7 @@ h4 {
     width: auto;
   }
 }
-.TopicsButton:focus {
+.TopicsButtonActive {
   margin-left: -6px;
   border-top: none;
   border-left: 6px solid #41729f;
@@ -84,7 +84,7 @@ h4 {
   text-decoration: none;
 }
 @media screen and (min-width: 576px) {
-  .TopicsButton:focus {
+  .TopicsButtonActive {
     margin-top: -6px;
     border-top: 6px solid #41729f;
     border-left: none;

@@ -19,7 +19,6 @@ export default class CommentsList extends Component {
       });
   }
   createComment = (articleId, userId, comment) => {
-    console.log('here');
     return api
       .postComment(articleId, userId, comment)
       .then((res) =>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import 'bootstrap-4-grid';
 
 import VoteHandler from './VoteHandler';
@@ -8,32 +8,38 @@ const ArticleCard = ({ article }) => {
   const { id, title, author, createdAt, commentCount, votes, topics } = article;
   const myDate = new Date(createdAt).toString();
   const formattedDate = myDate.slice(4, 15);
+
+  const handleCardClick = () => {
+    navigate(`/articles/${id}`);
+  };
+
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className='ArticleCard'>
-      <Link to={`/articles/${id}`}>
+    <div className='ArticleCard' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+      <div>
         <h3 className='ArticleTitle'>{title}</h3>
-        <div className='ArticleCardInner'>
+        <div className='ArticleCardInner' onClick={stopPropagation}>
           <div>
             <p>Author: {author}</p>
             <p>Created at: {formattedDate}</p>
             <p>comment count: {commentCount}</p>
             <p>Topics:</p>
             <div className='ArticleCardTopicsSection'>
-              {topics.map(({ slug, id }) => {
-                return (
-                  <Link to={`/articles/topic/${id}`} key={id}>
-                    <div className='ArticleCardTopic'>
-                      <p className='DisplayVotes'>{slug}</p>
-                    </div>
-                  </Link>
-                );
-              })}
+              {topics.map(({ slug, id }) => (
+                <Link to={`/articles/topic/${id}`} key={id} onClick={stopPropagation}>
+                  <div className='ArticleCardTopic'>
+                    <p className='DisplayVotes'>{slug}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
-
-          <VoteHandler className='VoteForm' id={id} thing={'articles'} votes={votes} />
+          <VoteHandler className='VoteForm' id={id} thing={'articles'} votes={votes} onClick={stopPropagation} />
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
