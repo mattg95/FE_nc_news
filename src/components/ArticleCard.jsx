@@ -5,7 +5,6 @@ import 'bootstrap-4-grid';
 import VoteHandler from './VoteHandler';
 
 const ArticleCard = ({ article }) => {
-  console.log(article.topics);
   const { id, title, author, createdAt, commentCount, votes, topics } = article;
   const myDate = new Date(createdAt).toString();
   const formattedDate = myDate.slice(4, 15);
@@ -19,15 +18,17 @@ const ArticleCard = ({ article }) => {
             <p>Created at: {formattedDate}</p>
             <p>comment count: {commentCount}</p>
             <p>Topics:</p>
-            {topics.map((topic) => {
-              return (
-                <Link to={`/articles/topic${topic}`}>
-                  <div className='ArticleCardTopic'>
-                    <p className='DisplayVotes'>{topic}</p>
-                  </div>
-                </Link>
-              );
-            })}
+            <div className='ArticleCardTopicsSection'>
+              {topics.map((topic) => {
+                return (
+                  <Link to={`/articles/topic/${topic}`}>
+                    <div className='ArticleCardTopic'>
+                      <p className='DisplayVotes'>{topic}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           <VoteHandler className='VoteForm' id={id} thing={'articles'} votes={votes} />
