@@ -1,27 +1,19 @@
-import React, { Component } from "react";
-import * as api from "../utils/api";
-import ArticleCard from "./ArticleCard";
-import ErrorHandler from "./ErrorHandler";
+import React, { Component } from 'react';
+import * as api from '../utils/api';
+import ArticleCard from './ArticleCard';
+import ErrorHandler from './ErrorHandler';
 
 class ArticleList extends Component {
   state = {
     loading: true,
-    articles: []
+    articles: [],
   };
   componentDidMount() {
     const { topic } = this.props;
-    topic
-      ? api
-          .getArticlesByTopic(topic)
-          .then(articles => this.setState({ articles, loading: false }))
-          .catch(err => ErrorHandler(err))
-      : api
-          .getAllArticles()
-          .then(articles =>
-            this.setState({ articles: articles, loading: false })
-          )
-          .catch(err => ErrorHandler(err));
-
+    api
+      .getArticlesByTopic(topic)
+      .then((articles) => this.setState({ articles, loading: false }))
+      .catch((err) => ErrorHandler(err));
   }
 
   componentDidUpdate(prevProps) {
@@ -29,23 +21,17 @@ class ArticleList extends Component {
     if (order !== prevProps.order || sortBy !== prevProps.sortBy) {
       this.setState({ loading: true });
       api
-        .sortArticles(sortBy, order)
-        .then(articles => this.setState({ articles, loading: false }))
-        .catch(err => ErrorHandler(err));
+        .getArticlesByTopic(topic, sortBy, order)
+        .then((articles) => this.setState({ articles, loading: false }))
+        .catch((err) => ErrorHandler(err));
     }
     if (topic !== prevProps.topic) {
       this.setState({ loading: true });
-      if (!topic) {
-        api
-          .getAllArticles()
-          .then(articles => this.setState({ articles, loading: false }))
-          .catch(err => ErrorHandler(err));
-      } else {
-        api
-          .getArticlesByTopic(topic)
-          .then(articles => this.setState({ articles, loading: false }))
-          .catch(err => ErrorHandler(err));
-      }
+
+      api
+        .getArticlesByTopic(topic)
+        .then((articles) => this.setState({ articles, loading: false }))
+        .catch((err) => ErrorHandler(err));
     }
   }
 
@@ -58,8 +44,10 @@ class ArticleList extends Component {
   checkForArticles = () => {
     const { topic } = this.props;
     const { articles } = this.state;
-    return articles ? this.createArticleList(): (
-      <div className="UserMessage">
+    return articles ? (
+      this.createArticleList()
+    ) : (
+      <div className='UserMessage'>
         <h1>No articles found</h1>
       </div>
     );
@@ -70,9 +58,9 @@ class ArticleList extends Component {
     const { topic } = this.props;
 
     return (
-      <div className="ArticleList">
+      <div className='ArticleList'>
         {loading && (
-          <div className="UserMessage">
+          <div className='UserMessage'>
             <h1>LOADING</h1>
           </div>
         )}

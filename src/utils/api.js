@@ -9,12 +9,8 @@ exports.getAllArticles = () => {
   return axios.get(baseURL + '/articles').then(({ data }) => data);
 };
 
-exports.sortArticles = (sortBy, order) => {
-  return axios.get(baseURL + `/articles?sort_by=${sortBy}&order=${order}`).then(({ data }) => data);
-};
-
-exports.getArticlesByTopic = (topic) => {
-  return axios.get(baseURL + `/articles?topic=${topic}`).then(({ data }) => data);
+exports.getArticlesByTopic = (topic = '', sortBy = '', order = '') => {
+  return axios.get(baseURL + `/articles?topic=${topic}&sort_by=${sortBy}&order=${order}`).then(({ data }) => data);
 };
 
 exports.getArticleById = (articleId) => {
