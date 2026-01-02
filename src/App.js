@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import Login from "./components/Login";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -14,13 +15,26 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
           <Routes>
             <Route
-              path="/articles/topic/:topic"
-              element={<Nav username={username} userId={1} />}
+              path="/login"
+              element={
+                <>
+                  <Header />
+                  <Login />
+                </>
+              }
             />
-            <Route path="/*" element={<Nav username={username} userId={1} />} />
+
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Header />
+                  <Nav username={username} userId={1} />
+                </>
+              }
+            />
           </Routes>
         </div>
       </Router>

@@ -6,6 +6,7 @@ import * as api from "../utils/api";
 import ErrorHandler from "./ErrorHandler";
 import SingleArticle from "./SingleArticle";
 import Sort from "./Sort";
+import Login from "./Login";
 
 class Nav extends Component {
   state = {
@@ -75,7 +76,9 @@ class Nav extends Component {
                   <div className="Login">
                     <Link to={`/login`}>
                       <div className="StandardButton">
-                        <p className="StandardButtonText">Login</p>
+                        <p className="StandardButtonText">
+                          {this.props.username ? "Logout" : "Login"}
+                        </p>
                       </div>
                     </Link>
                   </div>
@@ -92,6 +95,7 @@ class Nav extends Component {
                     <Route path="/articles/topic/:topicId" element={<Sort />} />
                     <Route path="/*" element={<Sort />} />
                     <Route path="*" element={<ErrorHandler />} />
+                    <Route path="/login" element={<Login />} />
                   </Routes>
                 </div>
               </div>
