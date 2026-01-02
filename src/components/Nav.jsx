@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import { Link } from '@reach/router';
-import 'bootstrap-4-grid';
+import React, { Component } from "react";
+import { Link, Routes, Route, useParams } from "react-router-dom";
+import "bootstrap-4-grid";
 
-import * as api from '../utils/api';
-import ErrorHandler from './ErrorHandler';
-import { Router } from '@reach/router';
-import SingleArticle from './SingleArticle';
-import Sort from './Sort';
+import * as api from "../utils/api";
+import ErrorHandler from "./ErrorHandler";
+import SingleArticle from "./SingleArticle";
+import Sort from "./Sort";
 
 class Nav extends Component {
   state = {
     topics: [],
     loading: true,
-    topic: '',
+    topic: "",
     error: false,
   };
   componentDidMount() {
@@ -42,7 +41,11 @@ class Nav extends Component {
       const isActive = topic === String(id); // Check if the current route topic matches the button's id
       return (
         <Link to={`/articles/topic/${id}`} key={id}>
-          <button className={`TopicsButton TopicsButton${isActive ? 'Active' : ''}`} value={slug} type='button'>
+          <button
+            className={`TopicsButton TopicsButton${isActive ? "Active" : ""}`}
+            value={slug}
+            type="button"
+          >
             {slug.toUpperCase()}
           </button>
         </Link>
@@ -52,34 +55,38 @@ class Nav extends Component {
 
   render() {
     return (
-      <div className='Nav'>
+      <div className="Nav">
         {this.state.error ? (
           <h1>404 Not Found</h1>
         ) : (
           <div>
-            <div className='TopicsButtonsContainer'>
-              <div className='AllTopicsButtons'>
+            <div className="TopicsButtonsContainer">
+              <div className="AllTopicsButtons">
                 {this.state.loading && <h3>LOADING</h3>}
-                <Link to='/'>
-                  <button className='TopicsButton'>ALL</button>
+                <Link to="/">
+                  <button className="TopicsButton">ALL</button>
                 </Link>
                 {this.mapTopics()}
               </div>
             </div>
-            <div className='container'>
-              <div className='row'>
-                <div className='col-12'>
-                  <h3 className='UserDisplay'>User: {this.props.username}</h3>
-                  <Router>
-                    <SingleArticle
-                      userId={this.props.userId}
-                      username={this.props.username}
-                      path='/articles/:articleId'
+            <div className="container">
+              <div className="row">
+                <div className="col-12">
+                  <h3 className="UserDisplay">User: {this.props.username}</h3>
+                  <Routes>
+                    <Route
+                      path="/articles/:articleId"
+                      element={
+                        <SingleArticle
+                          userId={this.props.userId}
+                          username={this.props.username}
+                        />
+                      }
                     />
-                    <Sort path='/articles/topic/:topicId' />
-                    <Sort path='/*' />
-                    <ErrorHandler default />
-                  </Router>
+                    <Route path="/articles/topic/:topicId" element={<Sort />} />
+                    <Route path="/*" element={<Sort />} />
+                    <Route path="*" element={<ErrorHandler />} />
+                  </Routes>
                 </div>
               </div>
             </div>
@@ -90,4 +97,10 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+// Wrapper component to use hooks
+function NavWrapper(props) {
+  const { topic } = useParams();
+  return <Nav {...props} topic={topic} />;
+}
+
+export default NavWrapper;

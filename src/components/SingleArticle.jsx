@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { useParams } from "react-router-dom";
 import * as api from "../utils/api";
 import CommentsList from "./CommentsList";
 import VoteHandler from "./VoteHandler";
 
-export default class SingleArticle extends Component {
+class SingleArticle extends Component {
   state = { loading: true, article: "", err: "" };
   componentDidMount() {
     const { articleId } = this.props;
@@ -28,4 +29,10 @@ export default class SingleArticle extends Component {
       </div>
     );
   }
+}
+
+// Wrapper component to use hooks
+export default function SingleArticleWrapper(props) {
+  const { articleId } = useParams();
+  return <SingleArticle {...props} articleId={articleId} />;
 }
