@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans:regular,bold,italic&subset=latin,latin-ext');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans:regular,bold,italic&subset=latin,latin-ext");
 
 .App {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 h3,
 h4 {
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
 }
 .Header {
-  font-family: 'roboto', serif;
+  font-family: "roboto", serif;
   display: flex;
   text-align: center;
   font-size: calc(50px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -20,9 +20,19 @@ h4 {
   background: #c3e0e5;
 }
 
-.UserDisplay {
-  margin: 20px 0px 10px;
+.Login {
+  display: flex;
   color: black;
+  justify-content: right;
+}
+
+.Login Button {
+  margin: 20px 0px 10px;
+  height: 40px;
+  width: 100px;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
 }
 .TopicsButtonsContainer {
   display: flex;
@@ -55,7 +65,7 @@ h4 {
 .TopicsButton {
   background-color: #f0f0f0;
   padding-top: 5px;
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
   font-size: 20px;
   line-height: 32px;
   height: 60px;
@@ -111,7 +121,7 @@ h4 {
 }
 
 .ArticleCardTopic {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -131,7 +141,7 @@ h4 {
 }
 
 .Sort {
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
 }
 a {
   text-decoration: none;
@@ -144,7 +154,7 @@ a {
 
 h3 {
   color: #000;
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
 
   font-size: 32px;
   line-height: 42px;
@@ -204,7 +214,7 @@ h3 {
 }
 
 .CommentsHeaders {
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
   font-size: 30px;
   margin: 30px 0 15px;
 }
@@ -237,7 +247,7 @@ h3 {
 }
 
 .DeleteButton {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   float: right;
   font-size: 20px;
   border: 2px solid grey;
@@ -252,7 +262,7 @@ h3 {
 }
 
 .VoteForm {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -269,7 +279,7 @@ h3 {
   }
 }
 .UpVoteButton {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   background-color: #41729f;
   border: 3px solid #41729f;
@@ -333,7 +343,7 @@ h3 {
   width: 100%;
 }
 
-.DisplayVotes {
+.StandardButton {
   margin: 10px;
   font-size: 20px;
   line-height: 30px;
@@ -342,7 +352,7 @@ h3 {
 }
 
 .UserMessage {
-  font-family: 'roboto', serif;
+  font-family: "roboto", serif;
   font-size: 20px;
   display: flex;
   justify-content: center;

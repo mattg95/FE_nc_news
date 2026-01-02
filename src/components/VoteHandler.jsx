@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import * as api from '../utils/api';
+import React, { Component } from "react";
+import * as api from "../utils/api";
 
 export default class VoteHandler extends Component {
   state = {
@@ -24,16 +24,22 @@ export default class VoteHandler extends Component {
     return this.state.loading ? (
       <h2>LOADING!</h2>
     ) : (
-      <div className='VoteForm'>
-        <p className='DisplayVotes'> Votes: {votes + +passedVote}</p>
-        <button onClick={this.handleClick} value={1} disabled={userComment || passedVote > 0} className='UpVoteButton'>
+      <div className="VoteForm">
+        <p className="StandardButton"> Votes: {votes + +passedVote}</p>
+        <button
+          onClick={this.handleClick}
+          value={1}
+          disabled={userComment || passedVote > 0}
+          className="UpVoteButton"
+        >
           Upvote
         </button>
         <button
           onClick={this.handleClick}
           value={-1}
           disabled={userComment || passedVote < 0}
-          className='DownVoteButton'>
+          className="DownVoteButton"
+        >
           Downvote
         </button>
       </div>

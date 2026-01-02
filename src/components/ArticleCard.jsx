@@ -40,7 +40,7 @@ const ArticleCard = ({ article }) => {
                   onClick={stopPropagation}
                 >
                   <div className="ArticleCardTopic">
-                    <p className="DisplayVotes">{slug}</p>
+                    <p className="StandardButton">{slug}</p>
                   </div>
                 </Link>
               ))}

@@ -72,7 +72,9 @@ class Nav extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-12">
-                  <h3 className="UserDisplay">User: {this.props.username}</h3>
+                  <div className="Login">
+                    <button className="StandardButton">Login</button>
+                  </div>
                   <Routes>
                     <Route
                       path="/articles/:articleId"
