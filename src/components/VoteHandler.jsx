@@ -25,7 +25,7 @@ export default class VoteHandler extends Component {
       <h2>LOADING!</h2>
     ) : (
       <div className="VoteForm">
-        <p className="StandardButton"> Votes: {votes + +passedVote}</p>
+        <p className="StandardButtonText"> Votes: {votes + +passedVote}</p>
         <button
           onClick={this.handleClick}
           value={1}

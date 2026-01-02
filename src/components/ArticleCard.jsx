@@ -39,8 +39,8 @@ const ArticleCard = ({ article }) => {
                   key={id}
                   onClick={stopPropagation}
                 >
-                  <div className="ArticleCardTopic">
-                    <p className="StandardButton">{slug}</p>
+                  <div className="StandardButton">
+                    <p className="StandardButtonText">{slug}</p>
                   </div>
                 </Link>
               ))}

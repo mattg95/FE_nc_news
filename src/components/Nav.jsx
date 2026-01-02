@@ -73,7 +73,11 @@ class Nav extends Component {
               <div className="row">
                 <div className="col-12">
                   <div className="Login">
-                    <button className="StandardButton">Login</button>
+                    <Link to={`/login`}>
+                      <div className="StandardButton">
+                        <p className="StandardButtonText">Login</p>
+                      </div>
+                    </Link>
                   </div>
                   <Routes>
                     <Route
